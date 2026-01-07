@@ -1,0 +1,147 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 23,
+  "margin-top": 2,
+  "margin-left": 8,
+  "margin-right": 8,
+  "spacing": 0,
+
+  "modules-left": [
+    "sway/workspaces",
+    "sway/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "custom/notification",
+    "custom/capslock",
+    "tray",
+    "custom/numlock",
+    "pulseaudio",
+    "sway/language",
+    "cpu",
+    "memory",
+    "temperature",
+    "custom/power"
+  ],
+
+  "sway/workspaces": {
+    "all-outputs": true,
+    "format": "{name}",
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+
+  "sway/window": {
+    "format": "{}",
+    "max-length": 30
+  },
+  
+ "custom/capslock": {
+  "exec": "grep -q 1 /sys/class/leds/*::capslock/brightness 2>/dev/null && echo '󰪛' || echo ''",
+  "interval": 1
+},
+"custom/numlock": {
+  "exec": "grep -q 1 /sys/class/leds/*::numlock/brightness 2>/dev/null && echo '󰎲' || echo ''",
+  "interval": 1
+
+},
+
+
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": "🔇 Muted",
+    "format-icons": {
+      "headphone": "🎧",
+      "default": ["🔈", "🔉", "🔊"]
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "tooltip": true,
+    "tooltip-format": "{desc} at {volume}%"
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}{text}",
+    "format-icons": {
+      "notification": "🔔 ",
+      "none": "",
+      "dnd-notification": "🔕 ",
+      "dnd-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb | jq --unbuffered --compact-output 'if .text == \"0\" then .text = \"\" else . end'",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "sway/language": {
+    "format": "{short}",
+    "format-us": "",
+    "format-ara": "",
+    "tooltip": false
+},
+
+
+  "tray": {
+    "icon-size": 13,
+    "spacing": 8
+  },
+        "clock": {
+        "format": " {:%a %d %b    %H : %M}",
+        "tooltip": true,
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down",
+            "on-click-right": "mode"
+        },
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+
+  "cpu": {
+    "format": " {usage}%"
+  },
+
+  "memory": {
+    "format": " {percentage}%"
+  },
+  
+  "temperature": {
+  "thermal-zone": 7,
+  "critical-threshold": 80,
+  "format": "{icon} {temperatureC}°C",
+  "format-critical": "{icon} {temperatureC}°C",
+  "format-icons": ["", "", "", "", ""],
+  "interval": 30,
+  "tooltip": true,
+  "tooltip-format": "CPU Package: {temperatureC}°C"
+},
+
+  "custom/power": {
+    "format": "PWR",
+    "tooltip": "Power Menu",
+    "on-click": "wlogout -b 2"
+  }
+}
+

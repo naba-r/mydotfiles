@@ -1,0 +1,84 @@
+# --- Core Wayland / Sway ---
+sway
+swaybg
+swayidle
+swaylock
+waybar
+wlogout
+xwayland
+qt6-wayland
+xkeyboard-config
+
+# --- Launchers / Utilities ---
+fuzzel
+grim
+slurp
+wl-clipboard
+cliphist
+
+# --- Audio (PipeWire) ---
+pipewire
+pipewire-pulseaudio
+wireplumber
+pavucontrol
+
+# --- Terminal / Shell / CLI ---
+kitty
+fish
+fastfetch
+lsd
+htop
+btop
+yazi
+
+# --- File Management ---
+thunar
+gvfs
+gvfs-backends
+gvfs-fuse
+tumbler
+ffmpegthumbnailer
+imv
+
+# --- Policy / Security ---
+lxqt-policykit
+keepassxc
+
+# --- Archive Manager ---
+lxqt-archiver
+
+# --- Network ---
+NetworkManager-applet
+
+# --- Browser ---
+MozillaFirefox
+
+# --- Development / Writing ---
+git
+python311
+hugo
+micro-editor
+geany
+msedit
+
+# --- Virtualization ---
+libvirt
+libvirt-daemon-qemu
+virt-manager
+virt-install
+qemu-tools
+qemu-ovmf-x86_64
+
+# --- Icons / UI ---
+papirus-icon-theme
+SwayNotificationCenter
+
+# --- XDG / Portals ---
+xdg-utils
+xdg-user-dirs
+xdg-user-dirs-gtk
+xdg-desktop-portal
+xdg-desktop-portal-wlr
+
+# --- Misc ---
+opi

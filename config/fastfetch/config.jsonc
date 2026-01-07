@@ -1,0 +1,149 @@
+
+{
+"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+"logo": {
+"padding": {
+"top": 1
+}
+},
+"display": {
+"separator": " 󰑃  "
+},
+"modules": [
+    "break",
+    {
+    "type": "os",
+    "key": " Distro  ",
+    "keyColor": "yellow"
+     },
+    {
+    "type": "command",
+    "key": " Snapshot",
+    "keyColor": "#958102",
+    "text": "grep 'VERSION_ID=' /etc/os-release | cut -d'=' -f2 | tr -d '\"'"
+     },
+    {
+    "type": "kernel",
+    "key": "│ ├",
+    "keyColor": "yellow"
+    },
+    {
+    "type": "packages",
+    "key": "│ ├󰏖",
+    "keyColor": "yellow"
+    },
+    {
+    "type": "shell",
+    "key": "│ └",
+    "keyColor": "yellow"
+    },
+    {
+    "type": "wm",
+    "key": " DE/WM",
+    "keyColor": "blue"
+    },
+    {
+    "type": "de",
+    "key": "│ ├",
+    "keyColor": "blue"
+    },
+    {
+    "type": "wmtheme",
+    "key": "│ ├󰉼",
+    "keyColor": "blue"
+    },
+    {
+    "type": "icons",
+    "key": "│ ├󰀻",
+    "keyColor": "blue"
+    },
+    {
+        "type": "cursor",
+        "key": "│ ├󰆿",
+        "keyColor": "blue",
+    },
+    {
+        "type": "terminalfont",
+        "key": "│ ├",
+        "keyColor": "blue",
+    },
+    {
+    "type": "terminal",
+    "key": "│ └",
+    "keyColor": "blue"
+    },
+    {
+    "type": "host",
+    "key": "󰌢 SYSTEM",
+    "keyColor": "green"
+    },
+    {
+    "type": "cpu",
+    "key": "│ ├󰻠",
+    "keyColor": "green"
+    },
+    {
+    "type": "gpu",
+    "key": "│ ├󰻑",
+    "keyColor": "green"
+    },
+    {
+    "type": "display",
+    "key": "│ ├󰍹",
+    "keyColor": "green",
+    "compactType": "none"
+    },
+    {
+    "type": "disk",
+    "key": "│ ├󰋊",
+    "keyColor": "bold_green",
+    },
+    {
+    "type": "memory",
+    "key": "│ ├",
+    "keyColor": "green"
+    },
+    {
+    "type": "swap",
+    "key": "│ ├󰓡",
+    "keyColor": "green"
+    },
+    {
+    "type": "uptime",
+    "key": "│ ├󰔟",
+    "keyColor": "green"
+    },
+    {
+    "type": "command",
+    "key": "│ └󰚰 last Update",
+    "keyColor": "green",
+    "text": "if [ -f ~/.lastdup ]; then lastdup=$(cat ~/.lastdup); now=$(date +%s); diff=$((now - lastdup)); days=$((diff / 86400)); hours=$(( (diff % 86400) / 3600 )); mins=$(( (diff % 3600) / 60 )); echo \"$days days, $hours hours, $mins mins\"; else echo \"never\"; fi"
+    },
+    {
+    "type": "sound",
+    "key": "  AUDIO",
+    "format": "{2}",
+    "keyColor": "magenta"
+    },
+    {
+    "type": "player",
+    "key": "│ ├󰥠",
+    "keyColor": "magenta"
+    },
+    {
+    "type": "media",
+    "key": "│ └󰝚",
+    "keyColor": "magenta"
+    },
+    {
+    "type": "localip",
+    "key": "│  󰩠    ",
+    "keyColor": "#958102"
+    },
+    {
+    "type": "custom",
+    "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m  \u001b[38m  \u001b[39m  \u001b[39m    \u001b[38m  \u001b[37m  \u001b[36m  \u001b[35m  \u001b[34m  \u001b[33m  \u001b[32m  \u001b[31m  \u001b[90m "
+    },
+    "break",
+    ]
+    }
