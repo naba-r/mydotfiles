@@ -59,10 +59,10 @@ sudo zypper al patterns-sway-sway || true
 ### -----------------------------
 ### 3. Install Packages
 ### -----------------------------
-echo "📦 Installing packages..."
+echo "📦 Installing packages"
 sudo zypper refresh
-# The -y flag is important for unattended install
-sudo zypper in -y --no-recommends $(< "$PACKAGES_FILE")
+sudo zypper in -y --no-recommends $(grep -v '^\s*#' "$PACKAGES_FILE" | grep -v '^\s*$')
+
 
 ### -----------------------------
 ### 4. User Configuration
