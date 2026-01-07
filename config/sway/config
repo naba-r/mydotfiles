@@ -1,0 +1,117 @@
+# ---- System Integration ----
+
+# 1. Run the script we just made. 
+# It handles the Keyring AND the DBus environment update in one go.
+exec --no-startup-id ~/.config/sway/start-keyring.sh
+
+
+
+# Set mod key (Super/Windows)
+set $mod Mod4
+set $menu fuzzel
+
+# Remove title bars from all windows
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders --i3 smart 
+
+# Essential autostarts
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec "sleep 2 && waybar"
+exec swaync
+
+
+
+# Keyboard configuration
+input * {
+    xkb_layout us,ara
+    xkb_numlock enable
+}
+
+# Assign workspaces to output (do NOT "switch" to them here)
+workspace 1 output WL-1
+workspace 2 output WL-1
+workspace 3 output WL-1
+
+# Wallpaper
+exec_always swaybg -i /home/fahad/Pictures/wallpapers/view-urban-dark-city-with-fog.jpg -m fill
+
+# Cosmo-like tiling (with --to-code for Arabic layout support)
+bindsym --to-code $mod+h focus left
+bindsym --to-code $mod+j focus down
+bindsym --to-code $mod+k focus up
+bindsym --to-code $mod+l focus right
+bindsym --to-code $mod+Shift+h move left
+bindsym --to-code $mod+Shift+j move down
+bindsym --to-code $mod+Shift+k move up
+bindsym --to-code $mod+Shift+l move right
+bindsym --to-code $mod+o focus output next
+
+# Essential shortcuts (with --to-code for Arabic layout support)
+bindsym --to-code $mod+Return exec kitty
+bindsym --to-code $mod+d exec $menu
+bindsym --to-code $mod+q kill
+bindsym --to-code $mod+f exec brave-browser --password-store=gnome
+bindsym --to-code $mod+t exec gedit
+bindsym --to-code $mod+r exec io.gitlab.news_flash.NewsFlash
+bindsym --to-code $mod+e exec nautilus
+# Screenshot - copy to clipboard only
+bindsym Print exec sh -c 'grim -g "$(slurp)" - | wl-copy'
+
+# Screenshot - save to file
+bindsym Ctrl+Print exec sh -c 'grim -g "$(slurp)" /home/fahad/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png'
+
+
+# Volume controls using media keys
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+# Alternative: Use Super+Up/Down for volume if media keys don't work
+bindsym --to-code $mod+Up exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym --to-code $mod+Down exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --to-code $mod+m exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+
+# Workspaces
+bindsym $mod+KP_1 workspace 1
+bindsym $mod+KP_2 workspace 2
+bindsym $mod+KP_3 workspace 3
+bindsym $mod+Shift+KP_End    move container to workspace 1; workspace 1
+bindsym $mod+Shift+KP_Down   move container to workspace 2; workspace 2
+bindsym $mod+Shift+KP_Next   move container to workspace 3; workspace 3
+
+# Clipboard configuration
+
+# 1. Start the watcher using script 
+exec_always ~/.config/sway/scripts/start-clipman.sh
+
+# 2. Keybinding
+# We use --tool=CUSTOM to bypass the "unsupported tool" error
+bindsym --to-code $mod+v exec clipman pick --tool=CUSTOM --tool-args="fuzzel -d --prompt='📋 '"
+
+
+# System
+
+bindsym $mod+Shift+r exec pkill -SIGUSR2 waybar
+bindsym --to-code $mod+Shift+c reload
+bindsym --to-code $mod+Shift+f layout toggle tabbed split
+bindsym Mod1+Tab exec ~/.config/sway/scripts/app-switcher.sh						
+bindsym --to-code $mod+Shift+w exec sh -c 'killall waybar; sleep 0.5; waybar' &
+
+
+# Power menu with Ctrl+Alt+Delete
+bindsym Ctrl+Alt+Delete exec wlogout -b 2
+bindsym Ctrl+Alt+l exec ~/.config/sway/scripts/lock-with-sleep.sh
+
+
+# Switch keyboard layout
+bindsym $mod+space input * xkb_switch_layout next
+
+# Window borders
+client.focused          #ff7700 #ff7700 #000000 #ff7700
+client.focused_inactive #333333 #333333 #888888 #333333   #333333
+client.unfocused        #333333 #333333 #888888 #333333   #333333
+client.urgent           #cc241d #cc241d #ffffff #cc241d   #cc241d
+

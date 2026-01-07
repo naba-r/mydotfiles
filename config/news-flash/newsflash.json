@@ -1,0 +1,7 @@
+{
+  "backend": "newsblur",
+  "concurrent_downlaods": 24,
+  "sync_amount": 300,
+  "last_sync": "2026-01-07T04:31:07.738522418+00:00",
+  "keep_articles_days": 7
+}
