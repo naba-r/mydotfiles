@@ -15,6 +15,7 @@ grim
 slurp
 wl-clipboard
 cliphist
+clipman
 
 # --- Audio (PipeWire) ---
 pipewire
@@ -52,6 +53,7 @@ NetworkManager-applet
 
 # --- Browser ---
 MozillaFirefox
+brave-browser
 
 # --- Development / Writing ---
 git
