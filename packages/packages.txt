@@ -8,6 +8,9 @@ wlogout
 xwayland
 qt6-wayland
 xkeyboard-config
+gtklock
+dmenu
+jq
 
 # --- Launchers / Utilities ---
 fuzzel
@@ -43,7 +46,7 @@ imv
 
 # --- Policy / Security ---
 lxqt-policykit
-keepassxc
+
 
 # --- Archive Manager ---
 lxqt-archiver
@@ -84,3 +87,16 @@ xdg-desktop-portal-wlr
 
 # --- Misc ---
 opi
+xterm-kitty
+myrlyn
+galculator
+newsflash
+
+# Fonts
+google-noto-sans-fonts
+google-noto-color-emoji-fonts
+google-noto-sans-cjk-fonts
+cantarell-fonts
+dejavu-fonts
+ghostscript-fonts-std
+ubuntu-fonts
