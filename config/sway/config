@@ -8,7 +8,8 @@ output * scale 1
              
 exec_always $HOME/.config/sway/scripts/set-output.sh   
 
-
+# Polkit authentication agent
+exec lxqt-policykit
 
 # Set mod key (Super/Windows)
 
