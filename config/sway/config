@@ -45,7 +45,7 @@ workspace 3 output WL-1
 
 # Wallpaper
 
-exec_always swaybg -i $HOME/Pictures/wallpapers/default.jpg -m fill
+exec_always swaybg -i $HOME/Pictures/wallpapers/default.png -m fill
 
 # Cosmo-like tiling (with --to-code for Arabic layout support)
 
