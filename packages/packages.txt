@@ -87,14 +87,14 @@ xdg-desktop-portal-wlr
 
 # --- Misc ---
 opi
-xterm-kitty
+kitty-terminfo
 myrlyn
 galculator
 newsflash
 
 # Fonts
 google-noto-sans-fonts
-google-noto-color-emoji-fonts
+google-noto-coloremoji-fonts
 google-noto-sans-cjk-fonts
 cantarell-fonts
 dejavu-fonts
