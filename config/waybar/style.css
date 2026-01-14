@@ -17,16 +17,13 @@
 
 #workspaces,
 #window,
-#clock,
 #custom-capslock,
 #custom-numlock,
-#cpu,
-#memory,
 #temperature,
 #language,
 #custom-power {
     background: transparent;
-    margin: 0 4px;
+    margin: 0 6px;
     padding: 0 6px;       /* avoid vertical padding → keeps bar short */
     border-radius: 0;
     font-weight: normal;
@@ -55,8 +52,9 @@
     }
 
 #workspaces button.focused {
-    color: #000000;
-    background: #ff7700;
+    color: #F0B13B;              /* Text in your golden color */
+    background: transparent;      /* No background fill */
+    border-bottom: 2px solid #F0B13B;  /* Underline indicator */
     padding: 0 4px; 
     margin: 4px 1px;         /* ← MUST match or set explicitly */     
     border-radius: 4px;  /* ← very subtle roundness, or use 0 for square */
@@ -86,18 +84,27 @@
     margin-left: 6px;
 }
 
-#clock {
-    font-family: "Ubuntu Mono", "Noto Sans", sans-serif;
-    font-size: 11px;
-    color: #C57E50;
+/* ---------- Time (center) ---------- */
+#clock.time {
+    font-family:"JetBrainsMono Nerd Font", monospace;
+    font-size: 10px;
+    letter-spacing: 8px;
+    color:#F0B13B;
+    padding: 0 6px;
 }
 
-#cpu, #memory {
+/* ---------- Date (right) ---------- */
+#clock.date {
+    font-size: 11px;
     color: #aaaaaa;
+    padding: 0 8px;
+    font-family:"FiraCode Nerd Font", sans-serif;
 }
+
 /* Temperature styling */
 #temperature {
     color: #aaaaaa;  /* Default: below 61°C */
+    
     
 }
 
@@ -112,15 +119,16 @@
 
 #custom-power {
     color: #aaaaaa;
-    font-family: JetBrains Mono;
+    font-family: "FiraCode Nerd Font", sans-serif;
 }
 
 /* Base */
 #language {
-    padding: 0 8px;
+    padding: 0 6px;
     background: transparent;
     color: #aaaaaa;
     font-family: "FiraCode Nerd Font";
+    
 }
 
 /* US → icon only, neutral */
@@ -131,10 +139,10 @@
 
 /* Arabic → highlighted */
 #language.ara {
-    background: #aaaaaa;
-    color: #076911;
+    
+    color: #F0B13B;
     border-radius: 6px;
-    font-weight: bold;
+    
 }
 
 /* Volume (PulseAudio) */
@@ -150,10 +158,10 @@ margin-left: 0px;
 }
 
 #custom-capslock {
-     color: #C57E50;
+     color: #F0B13B;
     font-weight: bold;
     font-size: 14px;       
-    margin-left: 2px;
+    margin-left: 6px;
 }
 #custom-numlock {
     color: #aaaaaa;

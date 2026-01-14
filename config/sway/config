@@ -18,8 +18,8 @@ set $menu fuzzel
 
 # Remove title bars from all windows
 
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
 hide_edge_borders --i3 smart 
 
 # Essential autostarts
@@ -131,8 +131,8 @@ bindsym Ctrl+Alt+l exec $HOME/.config/sway/scripts/lock-with-sleep.sh
 bindsym $mod+space input * xkb_switch_layout next
 
 # Window borders
-
-client.focused          #ff7700 #ff7700 #000000 #ff7700
+#                    border  backgr. text    indicator child_border
+client.focused          #F0B13B #F0B13B #000000 #F0B13B   #F0B13B
 client.focused_inactive #333333 #333333 #888888 #333333   #333333
 client.unfocused        #333333 #333333 #888888 #333333   #333333
 client.urgent           #cc241d #cc241d #ffffff #cc241d   #cc241d
