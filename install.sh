@@ -133,6 +133,19 @@ export TERMINAL=kitty
 EOF
 
 ### =========================================================
+### 8.5 Compile GLIB Schemas (Fix Notifications/GTK)
+### =========================================================
+echo "⚙️ Compiling GLIB schemas..."
+if [ -d "/usr/share/glib-2.0/schemas/" ]; then
+    sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+    # Ensure the user-level schema path is also recognized
+    mkdir -p "$HOME/.local/share/glib-2.0/schemas"
+    echo "✅ Schemas compiled successfully."
+else
+    echo "⚠️ Warning: Schema directory not found, skipping."
+fi
+
+### =========================================================
 ### 9. Hugo Blog Directory
 ### =========================================================
 echo "✍ Preparing Hugo blog directory"

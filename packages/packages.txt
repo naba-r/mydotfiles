@@ -76,7 +76,10 @@ qemu-ovmf-x86_64
 
 # --- Icons / UI ---
 papirus-icon-theme
+adwaita-icon-theme
 SwayNotificationCenter
+libnotify-tools
+glib2-tools
 
 # --- XDG / Portals ---
 xdg-utils
