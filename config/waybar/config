@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 23,
+  "height": 25,
   "margin-top": 2,
   "margin-left": 8,
   "margin-right": 8,
@@ -12,18 +12,17 @@
     "sway/window"
   ],
   "modules-center": [
-    "clock"
+    "clock#time"
   ],
   "modules-right": [
-    "custom/notification",
+     "custom/notification",
+    "clock#date",
     "custom/capslock",
     "tray",
     "custom/numlock",
     "pulseaudio",
-    "sway/language",
-    "cpu",
-    "memory",
     "temperature",
+    "sway/language",
     "custom/power"
   ],
 
@@ -55,10 +54,10 @@
 
   "pulseaudio": {
     "format": "{volume}% {icon}",
-    "format-muted": "🔇 Muted",
+    "format-muted": "󰖁 Muted",
     "format-icons": {
-     "headphone": "",                                                                    
-     "default": ["󰕿", "󰖀", "󰕾"]   
+      "headphone": "🎧",
+      "default": ["󰕿", "󰖀", "󰕾"]
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
@@ -71,7 +70,7 @@
     "tooltip": false,
     "format": "{icon}{text}",
     "format-icons": {
-      "notification": "🔔 ",
+      "notification": "󱑽 ",
       "none": "",
       "dnd-notification": "🔕 ",
       "dnd-none": ""
@@ -91,42 +90,39 @@
     "tooltip": false
 },
 
-
   "tray": {
     "icon-size": 13,
     "spacing": 8
   },
-        "clock": {
-        "format": " {:%a %d %b    %H : %M}",
-        "tooltip": true,
-        "tooltip-format": "<tt><big>{calendar}</big></tt>",
-        "actions": {
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down",
-            "on-click-right": "mode"
-        },
-        "calendar": {
-            "mode": "month",
-            "mode-mon-col": 3,
-            "on-scroll": 1,
-            "format": {
-                "months": "<span color='#ffead3'><b>{}</b></span>",
-                "days": "<span color='#ecc6d9'><b>{}</b></span>",
-                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-            }
-        }
-    },
+       
+"clock#time": {
+  "format": "{:%H:%M}",
+  "tooltip": false
+},
 
-
-  "cpu": {
-    "format": " {usage}%"
+"clock#date": {
+  "format": "{:%A %d %B}  ",
+  "tooltip": true,
+  "tooltip-format": "<tt><big>{calendar}</big></tt>",
+  "actions": {
+    "on-scroll-up": "shift_up",
+    "on-scroll-down": "shift_down",
+    "on-click-right": "mode"
   },
+  "calendar": {
+    "mode": "month",
+    "mode-mon-col": 3,
+    "on-scroll": 1,
+    "format": {
+      "months": "<span color='#ffead3'><b>{}</b></span>",
+      "days": "<span color='#ecc6d9'><b>{}</b></span>",
+      "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+      "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+    }
+  }
+},
 
-  "memory": {
-    "format": " {percentage}%"
-  },
-  
+
   "temperature": {
   "thermal-zone": 7,
   "critical-threshold": 80,
