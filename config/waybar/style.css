@@ -1,40 +1,19 @@
 * {
     font-family: "FiraCode Nerd Font", "Dubai-Regular", sans-serif;
     font-size: 11px;
-    font-weight: normal;     /* 👈 CRITICAL: prevents accidental bold */
-    min-height: 0; 
-    padding: 0;              /* ← ADD: reset default padding */
-    margin: 0;               /* ← ADD: reset default margin */
-    
+    font-weight: normal;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
 }
 
 #waybar {
     background: transparent;
     color: #ffffff;
-    padding: 0;              /* remove all padding */
-    
+    padding: 0;
 }
 
-#workspaces,
-#window,
-#custom-capslock,
-#custom-numlock,
-#temperature,
-#language,
-#custom-power {
-    background: transparent;
-    margin: 0 6px;
-    padding: 0 6px;       /* avoid vertical padding → keeps bar short */
-    border-radius: 0;
-    font-weight: normal;
-}
-
-#workspaces {
-    background: transparent;   /* or match your bar bg */
-    padding: 0;          /* ← remove internal padding */
-    margin: 0 4px;       /* ← reduce horizontal spacing */
-    }
-
+/* ===== LEFT & CENTER (minimal) ===== */
 #workspaces button {
     padding: 0 4px;
     margin: 4px 1px;
@@ -42,41 +21,19 @@
     background: transparent;
     border: none;
     border-radius: 4px;
-    box-shadow: none;
-    outline: none;
-    min-width: 0;        /* ← crucial: prevents auto-expansion */
-     min-height: 0; 
-     font-size: 11px;
-    transition: none; 
-    
-    }
+    min-width: 0;
+    min-height: 0;
+    font-size: 11px;
+}
 
 #workspaces button.focused {
-    color: #F0B13B;              /* Text in your golden color */
-    background: transparent;      /* No background fill */
-    border-bottom: 2px solid #F0B13B;  /* Underline indicator */
-    padding: 0 4px; 
-    margin: 4px 1px;         /* ← MUST match or set explicitly */     
-    border-radius: 4px;  /* ← very subtle roundness, or use 0 for square */
-    font-weight: bold;   /* optional: add slight emphasis */
-    
-   
-}
-
-#workspaces button.visible {
-    color: #cccccc;
-}
-
-#workspaces button.urgent {
-    background: #cc241d;
-    color: #ffffff;
-}
-
-#workspaces button:hover {
-    background: rgba(255, 119, 0, 0.15);
-    color: #ffffff;
-    
-    
+    color: #F0B13B;
+    background: transparent;
+    border-bottom: 2px solid #F0B13B;
+    padding: 0 4px;
+    margin: 4px 1px;
+    border-radius: 4px;
+    font-weight: bold;
 }
 
 #window {
@@ -84,32 +41,57 @@
     margin-left: 6px;
 }
 
-/* ---------- Time (center) ---------- */
 #clock.time {
-    font-family:"JetBrainsMono Nerd Font", monospace;
-    font-size: 10px;
+    font-family: "JetBrainsMono Nerd Font", monospace;
     letter-spacing: 8px;
-    color:#F0B13B;
+    color: #F0B13B;
     padding: 0 6px;
 }
 
-/* ---------- Date (right) ---------- */
-#clock.date {
-    font-size: 11px;
-    color: #aaaaaa;
-    padding: 0 8px;
-    font-family:"FiraCode Nerd Font", sans-serif;
+/* ===== RIGHT MODULES: CONSISTENT SPACING (GTK3-SAFE) ===== */
+#custom-notification,
+#clock.date,
+#custom-capslock,
+#tray,
+#custom-numlock,
+#pulseaudio,
+#temperature,
+#language,
+#custom-power {
+    padding: 0 6px;
+    margin-left: 6px;
 }
 
-/* Temperature styling */
+/* First item on the right: no left margin */
+#custom-notification {
+    margin-left: 0;
+}
+
+/* Normalize font sizes to prevent vertical misalignment */
+#custom-capslock {
+    color: #F0B13B;
+    font-weight: bold;
+    
+}
+
+#custom-numlock {
+    color: #aaaaaa;
+    font-weight: bold;
+    
+}
+
+#clock.date {
+    color: #aaaaaa;
+    font-family: "FiraCode Nerd Font", sans-serif;
+    
+}
+
 #temperature {
-    color: #aaaaaa;  /* Default: below 61°C */
-    
-    
+    color: #aaaaaa;
 }
 
 #temperature.critical {
-    color: #cc241d;  /* Over 80°C */
+    color: #cc241d;
     animation: blink 1s ease-in-out infinite;
 }
 
@@ -122,56 +104,15 @@
     font-family: "FiraCode Nerd Font", sans-serif;
 }
 
-/* Base */
 #language {
-    padding: 0 6px;
-    background: transparent;
     color: #aaaaaa;
     font-family: "FiraCode Nerd Font";
-    
 }
 
-/* US → icon only, neutral */
-#language.us {
-    background: transparent;
-    color: #aaaaaa;
-}
-
-/* Arabic → highlighted */
 #language.ara {
-    
     color: #F0B13B;
-    border-radius: 6px;
-    
 }
 
-/* Volume (PulseAudio) */
 #pulseaudio {
-    margin-left: 6px;
     color: #aaaaaa;
-    margin-right: 6px;
 }
-#custom-notification { margin-right: 6px; }
-#tray { 
-margin-right: 6px;
-margin-left: 0px; 
-}
-
-#custom-capslock {
-     color: #F0B13B;
-    font-weight: bold;
-    font-size: 14px;       
-    margin-left: 6px;
-}
-#custom-numlock {
-    color: #aaaaaa;
-    font-weight: bold;
-    font-size: 10px; 
-    margin-left: 6px;
-    margin-right: 12px;
-}
-
-
-
-
-

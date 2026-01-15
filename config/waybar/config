@@ -42,21 +42,21 @@
   },
   
  "custom/capslock": {
-  "exec": "grep -q 1 /sys/class/leds/*::capslock/brightness 2>/dev/null && echo '󰪛' || echo ''",
+  "exec": "grep -q 1 /sys/class/leds/*::capslock/brightness 2>/dev/null && echo '󰪛 ' || echo ''",
   "interval": 1
 },
 "custom/numlock": {
-  "exec": "grep -q 1 /sys/class/leds/*::numlock/brightness 2>/dev/null && echo '󰎲' || echo ''",
+  "exec": "grep -q 1 /sys/class/leds/*::numlock/brightness 2>/dev/null && echo '󰎲 ' || echo ''",
   "interval": 1
 
 },
 
 
   "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-muted": "󰖁 Muted",
+    "format": "{volume}% {icon} ",
+    "format-muted": "󰝟 Muted",
     "format-icons": {
-      "headphone": "🎧",
+      "headphone": "",
       "default": ["󰕿", "󰖀", "󰕾"]
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
@@ -84,7 +84,7 @@
   },
 
   "sway/language": {
-    "format": "{short}",
+    "format": "{short} ",
     "format-us": "",
     "format-ara": "",
     "tooltip": false
@@ -101,7 +101,7 @@
 },
 
 "clock#date": {
-  "format": "{:%A %d %B}  ",
+  "format": "{:%A %d %B}",
   "tooltip": true,
   "tooltip-format": "<tt><big>{calendar}</big></tt>",
   "actions": {
@@ -126,16 +126,15 @@
   "temperature": {
   "thermal-zone": 7,
   "critical-threshold": 80,
-  "format": "{icon} {temperatureC}°C",
-  "format-critical": "{icon} {temperatureC}°C",
-  "format-icons": ["", "", "", "", ""],
+  "format": "{temperatureC} 󰔄 ",
+  "format-critical": "{temperatureC}  ",
   "interval": 30,
   "tooltip": true,
   "tooltip-format": "CPU Package: {temperatureC}°C"
 },
 
   "custom/power": {
-    "format": "PWR",
+    "format": "󰿅 " ,
     "tooltip": "Power Menu",
     "on-click": "wlogout -b 2"
   }
