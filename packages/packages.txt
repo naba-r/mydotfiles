@@ -9,7 +9,6 @@ xwayland
 qt6-wayland
 xkeyboard-config
 gtklock
-dmenu
 jq
 
 # --- Launchers / Utilities ---
@@ -92,9 +91,8 @@ xdg-desktop-portal-wlr
 
 # --- Misc ---
 opi
-kitty-terminfo
 myrlyn
-galculator
+qalculate-qt
 newsflash
 
 # Fonts
