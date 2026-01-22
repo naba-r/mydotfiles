@@ -28,6 +28,7 @@ pavucontrol
 
 # --- Terminal / Shell / CLI ---
 kitty
+kitty-terminfo
 fish
 fastfetch
 lsd
