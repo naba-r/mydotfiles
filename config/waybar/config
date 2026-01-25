@@ -135,8 +135,8 @@
 
   "custom/power": {
     "format": "󰿅 " ,
-    "tooltip": "Power Menu",
-    "on-click": "wlogout -b 2"
+    "tooltip": false,
+    "on-click": "~/.config/sway/scripts/power-menu.sh"
   }
 }
 

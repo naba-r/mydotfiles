@@ -4,7 +4,6 @@ swaybg
 swayidle
 swaylock
 waybar
-wlogout
 xwayland
 qt6-wayland
 xkeyboard-config
@@ -36,20 +35,19 @@ btop
 yazi
 
 # --- File Management ---
-thunar
+nemo
 gvfs
 gvfs-backends
 gvfs-fuse
-tumbler
 ffmpegthumbnailer
 imv
 
 # --- Policy / Security ---
-lxqt-policykit
+polkit-gnome
 
 
 # --- Archive Manager ---
-lxqt-archiver
+file-roller
 
 # --- Network ---
 NetworkManager-applet
@@ -65,7 +63,8 @@ hugo
 micro-editor
 geany
 msedit
-qpdfview
+papers
+papers-plugin-pdfdocument
 
 # --- Virtualization ---
 libvirt
@@ -81,6 +80,7 @@ adwaita-icon-theme
 SwayNotificationCenter
 libnotify-tools
 glib2-tools
+nwg-look
 
 # --- XDG / Portals ---
 xdg-utils
@@ -88,11 +88,12 @@ xdg-user-dirs
 xdg-user-dirs-gtk
 xdg-desktop-portal
 xdg-desktop-portal-wlr
+xdg-desktop-portal-gtk
 
 # --- Misc ---
 opi
 myrlyn
-qalculate-qt
+gnome-calculator
 newsflash
 
 # Fonts
