@@ -39,8 +39,12 @@ nemo
 gvfs
 gvfs-backends
 gvfs-fuse
+udisks2
+7zip
 ffmpegthumbnailer
 imv
+librsvg-2-2
+tree
 
 # --- Policy / Security ---
 polkit-gnome
@@ -62,6 +66,7 @@ python311
 hugo
 micro-editor
 geany
+geany-plugins
 msedit
 papers
 papers-plugin-pdfdocument
@@ -71,8 +76,10 @@ libvirt
 libvirt-daemon-qemu
 virt-manager
 virt-install
+virt-viewer
 qemu-tools
 qemu-ovmf-x86_64
+qemu-spice
 
 # --- Icons / UI ---
 papirus-icon-theme
@@ -95,11 +102,14 @@ opi
 myrlyn
 gnome-calculator
 newsflash
+libvirglrenderer1
+cockpit
 
 # Fonts
 google-noto-sans-fonts
 google-noto-coloremoji-fonts
 google-noto-sans-cjk-fonts
+google-noto-sans-arabic-fonts
 cantarell-fonts
 dejavu-fonts
 ghostscript-fonts-std
