@@ -1,0 +1,29 @@
+@import url("resource:///org/gnome/adwaita/dark.css");
+
+window {
+    background-color: #1e1e1e; /* Or your preferred background color */
+    color: white;
+}
+
+
+/* Fix invisible toolbar icons */
+headerbar button image,
+headerbar button .image,
+toolbarview button image,
+.toolbar button image {
+    color: rgba(0, 0, 0, 0.7) !important;
+    -gtk-icon-style: regular !important;
+}
+
+headerbar button:hover image {
+    color: rgba(0, 0, 0, 0.87) !important;
+}
+/* This targets the specific article view container in NewsFlash 5 */
+.article-view, textview, text {
+    font-family: "Dubai", sans-serif !important;
+}
+
+/* Specifically for the HTML-to-GTK rendered text */
+#article_view {
+    font-family: "Dubai" !important;
+}
