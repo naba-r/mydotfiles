@@ -52,15 +52,7 @@ sudo sed -i 's/^#\?installRecommends.*/installRecommends = false/' /etc/zypp/zyp
 echo "🔒 Locking sway pattern"
 sudo zypper al patterns-sway-sway 2>/dev/null || true
 
-### =========================================================
-### 3.1 Brave Browser Repo
-### =========================================================
-echo "🦁 Adding Brave Browser repository..."
-sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-if ! sudo zypper lr | grep -q "brave-browser"; then
-    sudo zypper addrepo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-    sudo zypper refresh brave-browser
-fi
+# --- BRAVE BROWSER REPO REMOVED ---
 
 ### =========================================================
 ### 4. Install Packages (Smart Loop with Report)
@@ -99,6 +91,9 @@ sudo systemctl enable --now NetworkManager 2>/dev/null || true
 ### =========================================================
 echo "📁 Restoring configuration files"
 mkdir -p "$HOME/.config"
+
+# Special handling for newsflash to avoid deleting its internal database/cache
+# while still updating the gtk.css and fontconfig
 rsync -a --delete "$CONFIG_SRC/" "$HOME/.config/"
 
 ### =========================================================
@@ -142,45 +137,19 @@ fi
 ### =========================================================
 echo "📂 Setting Nemo as default file manager"
 xdg-mime default nemo.desktop inode/directory 2>/dev/null || true
-xdg-mime default nemo.desktop application/octet-stream 2>/dev/null || true
 
 echo "⚙️ Applying UI Themes via GSettings"
 gsettings set org.gnome.desktop.interface gtk-theme "Graphite"
 gsettings set org.gnome.desktop.interface icon-theme "Boston-Cardboard"
 gsettings set org.gnome.desktop.interface cursor-theme "Future-cursors"
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.cinnamon.desktop.default-applications.terminal exec 'kitty'
+# Force Dubai as the interface font for other apps too
+gsettings set org.gnome.desktop.interface font-name 'Dubai 11'
 
 echo "🐟 Setting fish as default shell"
 if command -v fish &>/dev/null; then
   sudo chsh -s "$(command -v fish)" "$USER"
 fi
-
-echo "📝 Setting micro as default editor"
-sudo tee /etc/profile.d/editor.sh >/dev/null <<'EOF'
-export EDITOR=micro
-export VISUAL=micro
-EOF
-
-echo "🖥 Setting kitty as default terminal"
-sudo tee /etc/profile.d/terminal.sh >/dev/null <<'EOF'
-export TERMINAL=kitty
-EOF
-
-### =========================================================
-### 8.5 Compile GLIB Schemas
-### =========================================================
-echo "⚙️ Compiling GLIB schemas..."
-if [ -d "/usr/share/glib-2.0/schemas/" ]; then
-    sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
-    mkdir -p "$HOME/.local/share/glib-2.0/schemas"
-fi
-
-### =========================================================
-### 9. Hugo Blog Directory
-### =========================================================
-echo "✍ Preparing Hugo blog directory"
-mkdir -p "$BLOG_DIR"
 
 ### =========================================================
 ### Done (Final Report)
@@ -189,13 +158,3 @@ echo
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "✅ Installation complete!"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "📊 Summary:"
-echo "  ✅ Installed: ${#installed_packages[@]}"
-echo "  ⚠️  Skipped: ${#failed_packages[@]}"
-
-if [[ ${#failed_packages[@]} -gt 0 ]]; then
-  echo -e "\nSkipped packages (check names):"
-  printf '  - %s\n' "${failed_packages[@]}"
-fi
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "⚠ Please REBOOT to apply all changes."
