@@ -1,5 +1,8 @@
 # ---- System Integration ----
 
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_DATA_DIRS
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_TYPE=wayland XDG_DATA_DIRS
+
 # Resolution
 
 output * scale 1                                                                          
@@ -8,8 +11,6 @@ output * scale 1
              
 exec_always $HOME/.config/sway/scripts/set-output.sh   
 
-# Polkit authentication agent
-exec lxqt-policykit
 
 # Set mod key (Super/Windows)
 
@@ -24,7 +25,6 @@ hide_edge_borders --i3 smart
 
 # Essential autostarts
 
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec "sleep 2 && waybar"
 exec swaync
 
@@ -45,7 +45,7 @@ workspace 3 output WL-1
 
 # Wallpaper
 
-exec_always swaybg -i $HOME/Pictures/wallpapers/default.png -m fill
+exec_always swaybg -i $HOME/Pictures/wallpapers/Samoalaw.png -m fill
 
 # Cosmo-like tiling (with --to-code for Arabic layout support)
 
@@ -64,10 +64,11 @@ bindsym --to-code $mod+o focus output next
 bindsym --to-code $mod+Return exec kitty
 bindsym --to-code $mod+d exec $menu
 bindsym --to-code $mod+q kill
-bindsym --to-code $mod+f exec brave-browser 
+bindsym --to-code $mod+f exec firefox
 bindsym --to-code $mod+g exec env GTK_THEME=Adwaita:dark GTK_TEXT_DIR=rtl geany --new-instance
-bindsym --to-code $mod+r exec io.gitlab.news_flash.NewsFlash
-bindsym --to-code $mod+e exec thunar
+bindsym --to-code $mod+r exec env XDG_CONFIG_HOME=/home/fahad/.config/newsflash-gtk4 GSETTINGS_SCHEMA_DIR=/usr/share/glib-2.0/schemas io.gitlab.news_flash.NewsFlash
+bindsym --to-code $mod+e exec env XDG_DATA_DIRS=/usr/share GDK_BACKEND=wayland nemo
+bindsym --to-code $mod+t exec gnome-text-editor
 
 # Screenshot - copy to clipboard only
 
@@ -123,7 +124,7 @@ bindsym --to-code $mod+Shift+w exec sh -c 'killall waybar; sleep 0.5; waybar' &
 # Power menu with Ctrl+Alt+Delete
 
 bindsym Ctrl+Alt+Delete exec wlogout -b 2
-bindsym Ctrl+Alt+l exec $HOME/.config/sway/scripts/lock-with-sleep.sh
+bindsym --to-code Ctrl+Alt+l exec $HOME/.config/sway/scripts/lock-with-sleep.sh
 
 
 # Switch keyboard layout
