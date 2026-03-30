@@ -1,4 +1,4 @@
-# --- Core Wayland / Sway ---
+## --- Core Wayland / Sway ---
 sway
 swaybg
 swayidle
@@ -58,7 +58,7 @@ NetworkManager-applet
 
 # --- Browser ---
 MozillaFirefox
-brave-browser
+
 
 # --- Development / Writing ---
 git
@@ -67,9 +67,9 @@ hugo
 micro-editor
 geany
 geany-plugins
-msedit
 papers
 papers-plugin-pdfdocument
+gnome-text-editor
 
 # --- Virtualization ---
 libvirt
