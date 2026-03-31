@@ -104,6 +104,7 @@
     font-family: "FiraCode Nerd Font", sans-serif;
 }
 
+
 #language {
     color: #aaaaaa;
     font-family: "FiraCode Nerd Font";
@@ -112,6 +113,7 @@
 #language.ara {
     color: #F0B13B;
 }
+
 
 #pulseaudio {
     color: #aaaaaa;
