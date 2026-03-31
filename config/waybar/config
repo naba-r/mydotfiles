@@ -6,7 +6,8 @@
   "margin-left": 8,
   "margin-right": 8,
   "spacing": 0,
-
+ "hide-empty-text": true,
+ 
   "modules-left": [
     "sway/workspaces",
     "sway/window"
@@ -83,12 +84,13 @@
     "escape": true
   },
 
-  "sway/language": {
+"sway/language": {
     "format": "{short} ",
     "format-us": "",
     "format-ara": "",
     "tooltip": false
 },
+
 
   "tray": {
     "icon-size": 13,
