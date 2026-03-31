@@ -47,7 +47,12 @@ fi
 ### 3. System Configuration
 ### =========================================================
 echo "🔧 Configuring zypper (disable recommends)"
-sudo sed -i 's/^#\?installRecommends.*/installRecommends = false/' /etc/zypp/zypp.conf
+sudo mkdir -p /etc/zypp
+if [ ! -f /etc/zypp/zypp.conf ]; then
+    echo -e "[main]\ninstallRecommends = false" | sudo tee /etc/zypp/zypp.conf > /dev/null
+else
+    sudo sed -i 's/^#\?installRecommends.*/installRecommends = false/' /etc/zypp/zypp.conf
+fi
 
 echo "🔒 Locking sway pattern"
 sudo zypper al patterns-sway-sway 2>/dev/null || true
