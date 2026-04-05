@@ -34,6 +34,9 @@ yazi
 
 # --- File Management ---
 nemo
+nemo-extension-fileroller
+nemo-extension-terminal
+nemo-extension-image-converter
 gvfs
 gvfs-backends
 gvfs-fuse
