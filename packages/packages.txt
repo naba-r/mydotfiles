@@ -46,7 +46,7 @@ tree
 
 # --- Policy / Security ---
 polkit-gnome
-
+lxqt-policykit
 
 # --- Archive Manager ---
 file-roller
