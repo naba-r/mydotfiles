@@ -6,5 +6,6 @@ choice=$(printf "Power Off\nReboot\nLogout\nLock" | \
 case "$choice" in
   "Power Off") systemctl poweroff ;;
   "Reboot")   systemctl reboot ;;
+  "Logout")    swaymsg exit ;;
   "Lock")     ~/.config/sway/scripts/lock-with-sleep.sh ;;
 esac
