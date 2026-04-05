@@ -28,7 +28,7 @@ hide_edge_borders --i3 smart
 
 # Essential autostarts
 
-exec "sleep 2 && waybar"
+exec sh -c 'sleep 2 && waybar'
 exec swaync
 
 
