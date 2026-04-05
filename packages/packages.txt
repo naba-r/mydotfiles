@@ -97,6 +97,7 @@ xdg-user-dirs-gtk
 xdg-desktop-portal
 xdg-desktop-portal-wlr
 xdg-desktop-portal-gtk
+dbus-1-daemon
 
 # --- Misc ---
 opi
