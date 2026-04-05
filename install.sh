@@ -147,8 +147,9 @@ fi
 ### =========================================================
 ### 8. Default Applications & UI Settings
 ### =========================================================
-echo "📂 Setting Nemo as default file manager"
-xdg-mime default nemo.desktop inode/directory 2>/dev/null || true
+echo "📂 Setting Nautilus as default file manager"
+xdg-mime default org.gnome.Nautilus.desktop inode/directory 2>/dev/null || true
+xdg-mime default org.gnome.Loupe.desktop image/jpeg image/png image/webp image/gif image/tiff image/svg+xml
 
 echo "⚙️ Applying UI Themes via GSettings"
 gsettings set org.gnome.desktop.interface gtk-theme "Graphite"
