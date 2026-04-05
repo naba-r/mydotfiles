@@ -101,6 +101,10 @@ mkdir -p "$HOME/.config"
 # while still updating the gtk.css and fontconfig
 rsync -a --delete "$CONFIG_SRC/" "$HOME/.config/"
 
+# Making scripts executabl
+echo "🔧 Making scripts executable..."
+chmod +x "$HOME/.config/sway/scripts/"*.sh
+
 ### =========================================================
 ### 7. Fonts & Wallpaper & Themes
 ### =========================================================
