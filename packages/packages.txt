@@ -33,17 +33,18 @@ btop
 yazi
 
 # --- File Management ---
-nemo
-nemo-extension-fileroller
-nemo-extension-terminal
-nemo-extension-image-converter
+nautilus
+loupe
+tracker
+tracker-miners
+sushi
+nautilus-extension-terminal
 gvfs
 gvfs-backends
 gvfs-fuse
 udisks2
 7zip
 ffmpegthumbnailer
-imv
 librsvg-2-2
 tree
 
