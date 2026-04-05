@@ -35,8 +35,7 @@ yazi
 # --- File Management ---
 nautilus
 loupe
-tracker
-tracker-miners
+localsearch
 sushi
 nautilus-extension-terminal
 gvfs
@@ -99,6 +98,8 @@ xdg-desktop-portal
 xdg-desktop-portal-wlr
 xdg-desktop-portal-gtk
 dbus-1-daemon
+gsettings-desktop-schemas
+gsettings-backend-dconf
 
 # --- Misc ---
 opi
@@ -106,7 +107,7 @@ myrlyn
 gnome-calculator
 newsflash
 libvirglrenderer1
-cockpit
+patterns-cockpit
 
 # Fonts
 google-noto-sans-fonts
