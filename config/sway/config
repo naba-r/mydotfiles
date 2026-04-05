@@ -3,6 +3,9 @@
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_DATA_DIRS
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_TYPE=wayland XDG_DATA_DIRS
 
+#Polkit agent starting
+exec_always lxqt-policykit-agent
+
 # Resolution
 
 output * scale 1                                                                          
