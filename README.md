@@ -144,6 +144,6 @@ All scripts under `~/.config/sway/scripts/*.sh` are made executable automaticall
 
 ## 🗒️ Notes
 
-- This repo is opinionated and tuned for *my* workflow. and create new folder for my blog. keyboad layout in English US and Arabic
+- This repo is opinionated and tuned for *my* workflow.  keyboad layout in English US and Arabic
 - Tested exclusively on openSUSE Tumbleweed (rolling). Not tested on Leap or other distros.
 
