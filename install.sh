@@ -91,6 +91,7 @@ sudo usermod -aG input "$USER" 2>/dev/null || true
 echo "⚙ Enabling services"
 sudo systemctl enable --now libvirtd 2>/dev/null || true
 sudo systemctl enable --now NetworkManager 2>/dev/null || true
+sudo systemctl enable --now cockpit.socket 2>/dev/null || true
 
 ### =========================================================
 ### 6. Restore Config Files
