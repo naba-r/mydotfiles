@@ -2,7 +2,6 @@
 sway
 swaybg
 swayidle
-swaylock
 waybar
 xwayland
 qt6-wayland
@@ -15,7 +14,6 @@ fuzzel
 grim
 slurp
 wl-clipboard
-cliphist
 clipman
 
 # --- Audio (PipeWire) ---
