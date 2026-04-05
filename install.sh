@@ -36,7 +36,7 @@ FONTS_SRC="$DOTFILES_DIR/fonts"
 WALLPAPER_SRC="$DOTFILES_DIR/wallpaper"
 THEMES_SRC="$DOTFILES_DIR/Themes"
 PACKAGES_FILE="$DOTFILES_DIR/packages/packages.txt"
-BLOG_DIR="$HOME/naba-r.github.io"
+
 
 if [[ ! -f "$PACKAGES_FILE" ]]; then
   echo "❌ packages.txt not found at $PACKAGES_FILE"
@@ -57,7 +57,7 @@ fi
 echo "🔒 Locking sway pattern"
 sudo zypper al patterns-sway-sway 2>/dev/null || true
 
-# --- BRAVE BROWSER REPO REMOVED ---
+
 
 ### =========================================================
 ### 4. Install Packages (Smart Loop with Report)
@@ -65,17 +65,18 @@ sudo zypper al patterns-sway-sway 2>/dev/null || true
 echo "📦 Installing packages..."
 sudo zypper refresh
 
+LOG_FILE="$HOME/dotfiles-install.log"
 mapfile -t packages < <(grep -v '^\s*#' "$PACKAGES_FILE" | grep -v '^\s*$')
 failed_packages=()
 installed_packages=()
 
 for pkg in "${packages[@]}"; do
   echo -n "  Installing $pkg... "
-  if sudo zypper in -y --no-recommends "$pkg" 2>/dev/null; then
+  if sudo zypper in -y --no-recommends "$pkg" >> "$LOG_FILE" 2>&1; then
     echo "✅"
     installed_packages+=("$pkg")
   else
-    echo "⚠️ SKIPPED"
+    echo "⚠️ SKIPPED (see $LOG_FILE)"
     failed_packages+=("$pkg")
   fi
 done
@@ -101,9 +102,11 @@ mkdir -p "$HOME/.config"
 # while still updating the gtk.css and fontconfig
 rsync -a --delete "$CONFIG_SRC/" "$HOME/.config/"
 
-# Making scripts executabl
+#  Making scripts executable
 echo "🔧 Making scripts executable..."
-chmod +x "$HOME/.config/sway/scripts/"*.sh
+if [ -d "$HOME/.config/sway/scripts" ]; then
+  find "$HOME/.config/sway/scripts" -maxdepth 1 -type f -name "*.sh" -exec chmod +x {} \;
+fi
 
 ### =========================================================
 ### 7. Fonts & Wallpaper & Themes
@@ -160,10 +163,36 @@ if command -v fish &>/dev/null; then
   sudo chsh -s "$(command -v fish)" "$USER"
 fi
 
+echo "🐟 Setting up Sway auto-start for fish..."
+FISH_FILE="$HOME/.config/fish/config.fish"
+mkdir -p "$HOME/.config/fish"
+
+if ! grep -q "mydotfiles sway autostart" "$FISH_FILE" 2>/dev/null; then
+  cat << 'EOF' >> "$FISH_FILE"
+
+# mydotfiles sway autostart
+if status is-login
+  if test -z "$WAYLAND_DISPLAY"; and test -z "$DISPLAY"; and test "$XDG_VTNR" = "1"
+    exec dbus-run-session -- sway
+  end
+end
+EOF
+fi
+
 ### =========================================================
 ### Done (Final Report)
 ### =========================================================
 echo
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "✅ Installation complete!"
+if [[ ${#failed_packages[@]} -gt 0 ]]; then
+  echo "⚠️  Skipped packages (${#failed_packages[@]}):"
+  for p in "${failed_packages[@]}"; do echo "   - $p"; done
+  echo "   See $LOG_FILE for details."
+fi
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "🔁 Reboot recommended (groups + shell changes need re-login)"
+read -rp "   Reboot now? [y/N] " _reboot
+if [[ "${_reboot,,}" == "y" ]]; then
+  sudo reboot
+fi
