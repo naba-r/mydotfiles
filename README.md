@@ -17,7 +17,7 @@ No Display Manager required — log in via TTY and type `sway`.
 - **Fully Automated Install:** `install.sh` handles package installation (`zypper`), user groups (`libvirt`, `input`), service activation, and config symlinking.
 - **Smart Hardware & VM Detection:** Display script auto-detects QEMU/KVM vs. bare metal and adjusts to the maximum native resolution.
 - **Aggressive Power-Saving Lock:** `swayidle` stays disabled during active use; automatically activates on lock via `gtklock`.
-- **Polkit & Keyring Integration:** `lxqt-policykit` + `gnome-keyring` bridge — run root-level GUI apps (Nemo, Chromium) without constant password prompts.
+- **Polkit & Keyring Integration:**  `gnome-keyring` bridge — run root-level GUI apps (Nautilus, Chromium) without constant password prompts.
 - **Bilingual Keybindings:** Uses `--to-code` throughout so all shortcuts work in both English (`us`) and Arabic (`ara`) layouts.
 - **Modern Wayland Stack:** `waybar`, `fuzzel`, `swaync`, `clipman`, PipeWire (`wpctl`).
 
@@ -79,7 +79,7 @@ Or simply type `sway` if your shell profile already wraps it.
 | Terminal (Kitty) | `Super + Enter` |
 | App Launcher (Fuzzel) | `Super + D` |
 | Window Switcher | `Alt + Tab` |
-| File Manager (Nemo) | `Super + E` |
+| File Manager (Nautilus) | `Super + E` |
 | Web Browser (Firefox) | `Super + F` |
 | Clipboard History (Clipman) | `Super + V` |
 | Switch Layout (EN/AR) | `Super + Space` |
@@ -114,7 +114,7 @@ mydotfiles/
 
 Started automatically from the Sway config:
 
-- `lxqt-policykit-agent` — Polkit auth dialogs
+- `gnome-policykit-agent` — Polkit auth dialogs
 - `waybar` — status bar
 - `swaync` — notification daemon
 - Output auto-config script (VM/bare metal detection)
