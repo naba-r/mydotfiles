@@ -105,8 +105,8 @@ rsync -a --delete "$CONFIG_SRC/" "$HOME/.config/"
 
 #  Making scripts executable
 echo "🔧 Making scripts executable..."
-if [ -d "$HOME/.config/sway/scripts" ]; then
-  find "$HOME/.config/sway/scripts" -maxdepth 1 -type f -name "*.sh" -exec chmod +x {} \;
+if [ -d "$HOME/.config/sway" ]; then
+  find "$HOME/.config/sway" -maxdepth 2 -type f -name "*.sh" -exec chmod +x {} \;
 fi
 
 ### =========================================================
