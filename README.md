@@ -74,22 +74,47 @@ Or simply type `sway` if your shell profile already wraps it.
 
 ## ⌨️ Keybindings
 
+### 🖥️ System & Core
 | Action | Shortcut |
 |---|---|
 | Terminal (Kitty) | `Super + Enter` |
 | App Launcher (Fuzzel) | `Super + D` |
 | Window Switcher | `Alt + Tab` |
-| File Manager (Nautilus) | `Super + E` |
-| Web Browser (Firefox) | `Super + F` |
-| Clipboard History (Clipman) | `Super + V` |
-| Switch Layout (EN/AR) | `Super + Space` |
 | Close Window | `Super + Q` |
 | Reload Sway Config | `Super + Shift + C` |
 | Lock Screen | `Ctrl + Alt + L` |
-| Power Menu | `Ctrl + Alt + Delete` |
+| Switch Layout (EN/AR) | `Super + Space` |
+
+### 🚀 Applications
+| Action | Shortcut |
+|---|---|
+| File Manager (Nautilus) | `Super + E` |
+| Web Browser (Firefox) | `Super + F` |
+| Text Editor (GNOME) | `Super + T` |
+| Code/Text Editor (Geany) | `Super + G` |
+| RSS Reader (NewsFlash) | `Super + R` |
+
+### 🪟 Window & Workspace Management
+| Action | Shortcut |
+|---|---|
+| Focus Window (Left/Down/Up/Right) | `Super + H / J / K / L` |
+| Move Window (Left/Down/Up/Right) | `Super + Shift + H / J / K / L` |
+| Focus Next Monitor | `Super + O` |
+| Toggle Tabbed/Split Layout | `Super + Shift + F` |
+| Switch Workspace | `Super + Numpad 1 / 2 / 3` |
+| Move Window to Workspace | `Super + Shift + Numpad End / Down / Next` |
+
+### 🛠️ Utilities & Media
+| Action | Shortcut |
+|---|---|
+| Clipboard History (Clipman) | `Super + V` |
 | Screenshot → Clipboard | `Print` |
-| Screenshot → File | `Ctrl + Print` |
-| Volume | Media keys via `wpctl` |
+| Screenshot → Save to File | `Ctrl + Print` |
+| Volume Up / Down | `Media Keys` OR `Super + Up / Down` |
+| Mute Audio | `Audio Mute Key` OR `Super + M` |
+| Mute Microphone | `Mic Mute Key` |
+| Restart Waybar | `Super + Shift + W` |
+| Toggle Waybar Visibility | `Super + Shift + R` |
 
 ---
 
