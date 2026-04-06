@@ -167,6 +167,33 @@ All scripts under `~/.config/sway/scripts/*.sh` are made executable automaticall
 
 ---
 
+## 📰 NewsFlash Configuration
+
+NewsFlash is installed as a native openSUSE Tumbleweed package and launched with a custom XDG
+config path to keep its settings isolated from other GTK4 apps:
+
+- `~/.config/news-flash/` — backend config, feed settings, keybindings
+- `~/.config/newsflash-gtk4/` — GTK appearance overrides
+
+### Font
+Dubai font is set as the system sans-serif via fontconfig (`~/.config/fontconfig/fonts.conf`),
+and NewsFlash is configured to use sans-serif. This makes Dubai apply automatically to all
+article text without hardcoding it per-app.
+
+### Theme & Styling
+`~/.config/newsflash-gtk4/gtk.css` handles:
+- Dark theme via Adwaita dark stylesheet
+- Invisible toolbar icon fix (common issue on non-GNOME desktops)
+- Dubai font applied to the article view (NewsFlash 5 uses a native GTK widget instead of WebKit)
+
+### Sway Keybinding
+NewsFlash is launched via `Super + R` with a custom XDG config path:
+bindsym --to-code mod+rexecenvXDGCONFIGHOME=mod+r exec env XDG_CONFIG_HOME=
+mod+rexecenvXDGC​ONFIGH​OME=HOME/.config/newsflash-gtk4 GSETTINGS_SCHEMA_DIR=/usr/share/glib-2.0/schemas io.gitlab.news_flash.NewsFlash
+
+
+---
+
 ## 🗒️ Notes
 
 - This repo is opinionated and tuned for *my* workflow.  keyboad layout in English US and Arabic
