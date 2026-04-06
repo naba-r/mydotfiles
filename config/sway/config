@@ -7,7 +7,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 
 # Start GNOME Keyring for passwords
-exec $HOME/.config/sway/scripts/start-keyring.sh
+exec $HOME/.config/sway/start-keyring.sh
 
 # Resolution
 
