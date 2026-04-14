@@ -43,8 +43,11 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/naba-r/mydotfiles/main/i
 
 
 git clone https://github.com/naba-r/mydotfiles.git ~/mydotfiles
+
 cd ~/mydotfiles
+
 chmod +x install.sh
+
 ./install.sh
 
 
