@@ -214,7 +214,7 @@ mod+rexecenvXDGC​ONFIGH​OME=HOME/.config/newsflash-gtk4 GSETTINGS_SCHEMA_DIR
 > ```
 
 ---
-
+<div dir="rtl">
 ## ✨ ما الذي يميّز هذا الإعداد؟
 
 - **تثبيت ذاتي كامل**: السكربت `install.sh` تكفّل بكل شيء — من تثبيت الحزم (`zypper`)، إلى إضافة المستخدم للمجموعات المناسبة (`libvirt`, `input`)، وتفعيل الخدمات، وربط ملفات الإعداد في أماكنها الصحيحة.
@@ -228,7 +228,7 @@ mod+rexecenvXDGC​ONFIGH​OME=HOME/.config/newsflash-gtk4 GSETTINGS_SCHEMA_DIR
 - **اختصارات ثنائية اللغة**: جميع الاختصارات تعمل سواء كنت تستخدم لوحة مفاتيح إنجليزية (`us`) أو عربية (`ara`) — لأنها مبنية على الرمز (`--to-code`) وليس الحرف.
 
 - **حزمة Wayland حديثة ومتناسقة**: تتضمن `waybar`، `fuzzel`، `swaync`، `clipman`، و PipeWire.
-
+</div>
 ---
 
 ## 📦 قبل أن تبدأ
