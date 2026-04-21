@@ -70,7 +70,7 @@ geany
 geany-plugins
 papers
 papers-plugin-pdfdocument
-gnome-text-editor
+gedit
 
 # --- Virtualization ---
 libvirt
