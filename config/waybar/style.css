@@ -118,3 +118,13 @@
 #pulseaudio {
     color: #aaaaaa;
 }
+
+#network {
+    color: #aaaaaa;
+    padding: 0 6px;
+    margin-left: 6px;
+}
+
+#network.disconnected {
+    color: #cc241d;
+}
