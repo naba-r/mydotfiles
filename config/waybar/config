@@ -24,6 +24,7 @@
     "pulseaudio",
     "temperature",
     "sway/language",
+    "network",
     "custom/power"
   ],
 
@@ -111,7 +112,7 @@
     "on-scroll-down": "shift_down",
     "on-click-right": "mode"
   },
-  "calendar": {
+"calendar": {
     "mode": "month",
     "mode-mon-col": 3,
     "on-scroll": 1,
@@ -125,7 +126,7 @@
 },
 
 
-  "temperature": {
+"temperature": {
   "thermal-zone": 7,
   "critical-threshold": 80,
   "format": "{temperatureC} 󰔄 ",
@@ -134,6 +135,17 @@
   "tooltip": true,
   "tooltip-format": "CPU Package: {temperatureC}°C"
 },
+
+"network": {
+    "interval": 5,
+    "format-wifi": "󰖩  wifi",
+    "format-ethernet": "󰈀  eth",
+    "format-disconnected": "  offline",
+    "format-linked": "󰈀  linked",
+    "tooltip": false
+},
+
+
 
   "custom/power": {
     "format": "󰿅 " ,
