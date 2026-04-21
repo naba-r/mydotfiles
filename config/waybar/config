@@ -138,16 +138,19 @@
 
 "network": {
     "interval": 5,
-    "format-wifi": "󰖩  wifi",
-    "format-ethernet": "󰈀  eth",
+    "format-wifi": "󰖩  {essid}",
+    "format-ethernet": "󰈀  {ifname}",
     "format-disconnected": "  offline",
     "format-linked": "󰈀  linked",
-    "tooltip": false
+    "tooltip-format-wifi": "󰖩  {ipaddr}",
+    "tooltip-format-ethernet": "󰈀  {ipaddr}",
+    "tooltip-format-disconnected": "disconnected",
+    "on-click": "kitty nmtui"
 },
 
 
 
-  "custom/power": {
+"custom/power": {
     "format": "󰿅 " ,
     "tooltip": false,
     "on-click": "~/.config/sway/scripts/power-menu.sh"
