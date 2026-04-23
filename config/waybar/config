@@ -122,11 +122,11 @@
 "temperature": {
   "thermal-zone": 7,
   "critical-threshold": 80,
-  "format": "{temperatureC} 󰔄 ",
+  "format": "{temperatureC}°  ",
   "format-critical": "{temperatureC}  ",
   "interval": 30,
   "tooltip": true,
-  "tooltip-format": "CPU Package: {temperatureC}°C"
+  "tooltip-format": "CPU Temperature {temperatureC}°C"
 },
 
 "network": {
