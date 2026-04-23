@@ -16,8 +16,7 @@
     "clock#time"
   ],
   "modules-right": [
-     "custom/notification",
-    "clock#date",
+    "custom/notification",
     "custom/capslock",
     "tray",
     "custom/numlock",
