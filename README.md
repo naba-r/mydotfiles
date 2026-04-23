@@ -19,7 +19,7 @@ No Display Manager required — log in via TTY and type `sway`.
 - **Aggressive Power-Saving Lock:** `swayidle` stays disabled during active use; automatically activates on lock via `gtklock`.
 - **Polkit & Keyring Integration:**  `gnome-keyring` bridge — run root-level GUI apps (Nautilus, Chromium) without constant password prompts.
 - **Bilingual Keybindings:** Uses `--to-code` throughout so all shortcuts work in both English (`us`) and Arabic (`ara`) layouts.
-- **Modern Wayland Stack:** `waybar`, `fuzzel`, `swaync`, `clipman`, PipeWire (`wpctl`).
+- **Modern Wayland Stack:** `waybar`, `fuzzel`, `mako`, `clipman`, PipeWire (`wpctl`).
 
 ---
 
@@ -93,7 +93,7 @@ Or simply type `sway` if your shell profile already wraps it.
 |---|---|
 | File Manager (Nautilus) | `Super + E` |
 | Web Browser (Firefox) | `Super + F` |
-| Text Editor (GNOME) | `Super + T` |
+| Text Editor (Gedit) | `Super + T` |
 | Code/Text Editor (Geany) | `Super + G` |
 | RSS Reader (NewsFlash) | `Super + R` |
 
@@ -131,6 +131,7 @@ mydotfiles/
 ├── config/
 │   ├── sway/               # Sway config + automation scripts
 │   └── waybar/             # Status bar config & style
+    └── mako/               # Notification daemon config
 ├── fonts/                  # Nerd Fonts → ~/.local/share/fonts
 ├── wallpaper/              # Wallpapers → ~/Pictures/wallpapers
 └── Themes/                 # GTK themes + icons/cursors → ~/.themes / ~/.icons
@@ -144,7 +145,7 @@ Started automatically from the Sway config:
 
 - `gnome-policykit-agent` — Polkit auth dialogs
 - `waybar` — status bar
-- `swaync` — notification daemon
+- `mako` — notification daemon
 - Output auto-config script (VM/bare metal detection)
 - Clipboard watcher script
 
@@ -191,9 +192,7 @@ article text without hardcoding it per-app.
 
 ### Sway Keybinding
 NewsFlash is launched via `Super + R` with a custom XDG config path:
-bindsym --to-code mod+rexecenvXDGCONFIGHOME=mod+r exec env XDG_CONFIG_HOME=
-mod+rexecenvXDGC​ONFIGH​OME=HOME/.config/newsflash-gtk4 GSETTINGS_SCHEMA_DIR=/usr/share/glib-2.0/schemas io.gitlab.news_flash.NewsFlash
-
+bindsym --to-code $mod+r exec env XDG_CONFIG_HOME=/home/fahad/.config/newsflash-gtk4 XDG_DATA_DIRS=/usr/share:/usr/local/share ADW_DEBUG_COLOR_SCHEME=prefer-dark io.gitlab.news_flash.NewsFlash
 
 ---
 
@@ -226,7 +225,7 @@ mod+rexecenvXDGC​ONFIGH​OME=HOME/.config/newsflash-gtk4 GSETTINGS_SCHEMA_DIR
 
 **اختصارات ثنائية اللغة**: جميع الاختصارات تعمل سواء كنت تستخدم لوحة مفاتيح إنجليزية (`us`) أو عربية (`ara`) — لأنها مبنية على الرمز (`--to-code`) وليس الحرف.
 
-**حزمة Wayland حديثة ومتناسقة**: تتضمن `waybar`، `fuzzel`، `swaync`، `clipman`، و PipeWire.
+**حزمة Wayland حديثة ومتناسقة**: تتضمن `waybar`، `fuzzel`، `mako`، `clipman`، و PipeWire.
 
 ---
 
@@ -299,7 +298,7 @@ sway
 ### تشغيل التطبيقات
 - مدير الملفات: `Super + E`
 - المتصفّح: `Super + F`
-- محرر النصوص: `Super + T`
+- محرر النصوص (Gedit): `Super + T`
 - محرر الأكواد "برنامج جيني": `Super + G`
 - قارئ الأخبار (NewsFlash): `Super + R`
 
@@ -339,7 +338,7 @@ mydotfiles/
 
 - لإدارة صلاحيات التطبيقات: `gnome-policykit-agent`
 - شريط الحالة العلوي: `waybar`
-- نظام الإشعارات: `swaync`
+- نظام الإشعارات: `mako`
 - سكربت ضبط الشاشة (آلة افتراضية أم حقيقية)
 - مراقب الحافظة
 
