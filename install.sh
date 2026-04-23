@@ -109,6 +109,10 @@ if [ -d "$HOME/.config/sway" ]; then
   find "$HOME/.config/sway" -maxdepth 2 -type f -name "*.sh" -exec chmod +x {} \;
 fi
 
+if [ -f "$HOME/.config/waybar/notif-status.sh" ]; then
+  chmod +x "$HOME/.config/waybar/notif-status.sh"
+fi
+
 ### =========================================================
 ### 7. Fonts & Wallpaper & Themes
 ### =========================================================

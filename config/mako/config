@@ -1,0 +1,22 @@
+# ~/.config/mako/config
+
+# Base Style
+font=FiraCode Nerd Font 11
+width=300
+height=150
+margin=10
+padding=15
+border-size=2
+border-radius=4
+
+# Colors match theme
+background-color=#1e1e1e
+text-color=#ffffff
+border-color=#F0B13B
+
+# Progress bar
+progress-color=over #F0B13B
+
+[urgency=high]
+border-color=#cc241d
+default-timeout=0

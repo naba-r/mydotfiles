@@ -8,6 +8,7 @@ qt6-wayland
 xkeyboard-config
 gtklock
 jq
+mako
 
 # --- Launchers / Utilities ---
 fuzzel
@@ -85,7 +86,6 @@ qemu-spice
 # --- Icons / UI ---
 papirus-icon-theme
 adwaita-icon-theme
-SwayNotificationCenter
 libnotify-tools
 glib2-tools
 nwg-look

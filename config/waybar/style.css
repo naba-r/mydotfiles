@@ -65,6 +65,8 @@
 /* First item on the right: no left margin */
 #custom-notification {
     margin-left: 0;
+    padding: 0 6px;
+    color: #aaaaaa; 
 }
 
 /* Normalize font sizes to prevent vertical misalignment */
