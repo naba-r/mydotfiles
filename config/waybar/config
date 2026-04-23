@@ -70,19 +70,19 @@
 
   "custom/notification": {
     "tooltip": false,
-    "format": "{icon}{text}",
-    "format-icons": {
-      "notification": "󱑽 ",
-      "none": "",
-      "dnd-notification": "🔕 ",
-      "dnd-none": ""
-    },
+    "format": "{}", 
     "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb | jq --unbuffered --compact-output 'if .text == \"0\" then .text = \"\" else . end'",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
+    "exec": "~/.config/waybar/notif-status.sh",
+    "on-click": "makoctl dismiss -a",
+    "on-click-right": "makoctl restore",
     "escape": true
+    },
+    
+     "return-type": "json",
+   "exec": "~/.config/waybar/notif-status.sh",
+   "on-click": "makoctl dismiss -a",
+   "on-click-right": "makoctl restore",
+   "escape": true
   },
 
 "sway/language": {
