@@ -131,7 +131,7 @@ mydotfiles/
 ├── config/
 │   ├── sway/               # Sway config + automation scripts
 │   └── waybar/             # Status bar config & style
-    └── mako/               # Notification daemon config
+    └── mako/                 # Notification daemon config
 ├── fonts/                  # Nerd Fonts → ~/.local/share/fonts
 ├── wallpaper/              # Wallpapers → ~/Pictures/wallpapers
 └── Themes/                 # GTK themes + icons/cursors → ~/.themes / ~/.icons
@@ -324,13 +324,15 @@ sway
 ```
 mydotfiles/
 ├── install.sh              ← السكربت الرئيسي للتثبيت
-├── packages/packages.txt   ← قائمة الحزم
-├── config/sway/            ← إعدادات Sway والسكربتات الملحقة
-├── config/waybar/          ← إعدادات شريط الحالة
-├── fonts/                  ← خطوط 
+├── packages/
+│   └── packages.txt        ← قائمة الحزم
+├── config/
+│   ├── sway/               ← إعدادات Sway والسكربتات الملحقة
+│   ├── waybar/             ← إعدادات شريط الحالة
+│   └── mako/               ← إعدادات نظام الإشعارات
+├── fonts/                  ← الخطوط
 ├── wallpaper/              ← الخلفيات
 └── Themes/                 ← ثيمات GTK وأيقونات
-```
 
 ---
 
