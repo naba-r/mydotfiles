@@ -18,6 +18,7 @@
   "modules-right": [
     "custom/notification",
     "custom/capslock",
+    "clock#date",
     "tray",
     "custom/numlock",
     "pulseaudio",
@@ -37,7 +38,7 @@
     }
   },
 
-  "sway/window": {
+"sway/window": {
     "format": "{}",
     "max-length": 30
   },
