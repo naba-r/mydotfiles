@@ -51,7 +51,9 @@ workspace 3 output WL-1
 
 # Wallpaper
 
-output * bg $HOME/Pictures/wallpapers/default.jpg fill
+exec_always sh -c 'pkill swaybg; swaybg -i $HOME/Pictures/wallpapers/default.jpg -m fill'
+
+
 
 # Cosmo-like tiling (with --to-code for Arabic layout support)
 
