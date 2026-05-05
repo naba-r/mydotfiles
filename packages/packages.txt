@@ -34,12 +34,10 @@ btop
 yazi
 
 # --- File Management ---
-nautilus
 nemo
 loupe
 localsearch
 sushi
-nautilus-extension-terminal
 gvfs
 gvfs-backends
 gvfs-fuse

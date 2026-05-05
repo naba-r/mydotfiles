@@ -82,6 +82,54 @@ for pkg in "${packages[@]}"; do
 done
 
 ### =========================================================
+### 4b. Preflight (What failed and why?)
+### =========================================================
+echo "🧪 Preflight: checking required commands..."
+
+missing_cmds=()
+
+declare -A cmd_pkg=(
+  [swaymsg]="sway"
+  [waybar]="waybar"
+  [mako]="mako"
+  [makoctl]="mako"
+  [fuzzel]="fuzzel"
+  [wl-copy]="wl-clipboard"
+  [wl-paste]="wl-clipboard"
+  [grim]="grim"
+  [slurp]="slurp"
+  [gtklock]="gtklock"
+  [jq]="jq"
+  [wpctl]="wireplumber"
+  [dbus-update-activation-environment]="dbus-1-daemon"
+  [gnome-keyring-daemon]="gnome-keyring"
+  [killall]="psmisc"
+  [pkill]="procps"
+  [fc-cache]="fontconfig"
+)
+
+required_cmds=(
+  swaymsg waybar mako makoctl fuzzel wl-copy wl-paste grim slurp gtklock jq wpctl
+  dbus-update-activation-environment gnome-keyring-daemon killall pkill fc-cache
+)
+
+for c in "${required_cmds[@]}"; do
+  if ! command -v "$c" >/dev/null 2>&1; then
+    missing_cmds+=("$c")
+  fi
+done
+
+if [[ ${#missing_cmds[@]} -gt 0 ]]; then
+  echo "❌ Preflight: missing commands (install may be incomplete):"
+  for c in "${missing_cmds[@]}"; do
+    echo "   - $c (try: zypper in ${cmd_pkg[$c]:-<unknown package>})"
+  done
+  echo "   See $LOG_FILE for details (skipped packages)."
+else
+  echo "✅ Preflight OK"
+fi
+
+### =========================================================
 ### 5. User Groups & Services
 ### =========================================================
 echo "👥 Adding user to groups"
@@ -96,6 +144,11 @@ sudo systemctl enable --now cockpit.socket 2>/dev/null || true
 ### =========================================================
 ### 6. Restore Config Files
 ### =========================================================
+echo "📦 Backing up existing ~/.config"
+CONFIG_BACKUP_DIR="$HOME/.config.backup-$(date +%Y-%m-%d-%H%M%S)"
+mkdir -p "$CONFIG_BACKUP_DIR"
+rsync -a "$HOME/.config/" "$CONFIG_BACKUP_DIR/"
+
 echo "📁 Restoring configuration files"
 mkdir -p "$HOME/.config"
 

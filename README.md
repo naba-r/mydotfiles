@@ -162,10 +162,14 @@ Optional keyring bridge (if enabled):
 The config sync step runs:
 
 ```bash
+# Backup first (recommended on existing systems)
+rsync -a ~/.config/ ~/.config.backup-$(date +%Y-%m-%d-%H%M%S)/
+
+# Then sync dotfiles (destructive)
 rsync -a --delete config/ ~/.config/
 ```
 
-This **will remove** any `~/.config/` content not present in this repo. Safe for fresh installs; use caution on existing systems.
+This sync **will remove** any `~/.config/` content not present in this repo. The installer creates a backup first, but use caution on existing systems.
 
 All scripts under `~/.config/sway/scripts/*.sh` are made executable automatically by the installer.
 
@@ -192,7 +196,7 @@ article text without hardcoding it per-app.
 
 ### Sway Keybinding
 NewsFlash is launched via `Super + R` with a custom XDG config path:
-bindsym --to-code $mod+r exec env XDG_CONFIG_HOME=/home/fahad/.config/newsflash-gtk4 XDG_DATA_DIRS=/usr/share:/usr/local/share ADW_DEBUG_COLOR_SCHEME=prefer-dark io.gitlab.news_flash.NewsFlash
+bindsym --to-code $mod+r exec env XDG_CONFIG_HOME=$HOME/.config/newsflash-gtk4 XDG_DATA_DIRS=/usr/share:/usr/local/share ADW_DEBUG_COLOR_SCHEME=prefer-dark io.gitlab.news_flash.NewsFlash
 
 ---
 
@@ -351,10 +355,14 @@ mydotfiles/
 خلال التثبيت، تتم مزامنة الإعدادات عبر الأمر:
 
 ```bash
+# خذ نسخة احتياطية أولاً (مهم على الأنظمة المستخدمة مسبقاً)
+rsync -a ~/.config/ ~/.config.backup-$(date +%Y-%m-%d-%H%M%S)/
+
+# ثم مزامنة الإعدادات (قد تحذف إعدادات سابقة)
 rsync -a --delete config/ ~/.config/
 ```
 
-هذا يعني أن أي ملفات إعداد سابقة داخل المسار `~/.config/` سيتم حذفها واستبدالها بملفات هذا المستودع. الإجراء آمن تمامًا على الأنظمة الجديدة، لكن يُنصح بالحذر على الأنظمة المستخدمة مسبقًا.
+هذا يعني أن أي ملفات إعداد سابقة داخل المسار `~/.config/` قد يتم حذفها واستبدالها بملفات هذا المستودع. يقوم السكربت بإنشاء نسخة احتياطية أولاً، لكن يُنصح بالحذر على الأنظمة المستخدمة مسبقًا.
 
 ---
 
