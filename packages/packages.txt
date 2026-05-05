@@ -35,6 +35,7 @@ yazi
 
 # --- File Management ---
 nautilus
+nemo
 loupe
 localsearch
 sushi

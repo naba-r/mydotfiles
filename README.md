@@ -17,7 +17,7 @@ No Display Manager required — log in via TTY and type `sway`.
 - **Fully Automated Install:** `install.sh` handles package installation (`zypper`), user groups (`libvirt`, `input`), service activation, and config symlinking.
 - **Smart Hardware & VM Detection:** Display script auto-detects QEMU/KVM vs. bare metal and adjusts to the maximum native resolution.
 - **Aggressive Power-Saving Lock:** `swayidle` stays disabled during active use; automatically activates on lock via `gtklock`.
-- **Polkit & Keyring Integration:**  `gnome-keyring` bridge — run root-level GUI apps (Nautilus, Chromium) without constant password prompts.
+- **Polkit & Keyring Integration:**  `gnome-keyring` bridge — run root-level GUI apps (Nemo, Chromium) without constant password prompts.
 - **Bilingual Keybindings:** Uses `--to-code` throughout so all shortcuts work in both English (`us`) and Arabic (`ara`) layouts.
 - **Modern Wayland Stack:** `waybar`, `fuzzel`, `mako`, `clipman`, PipeWire (`wpctl`).
 
@@ -91,7 +91,7 @@ Or simply type `sway` if your shell profile already wraps it.
 ### 🚀 Applications
 | Action | Shortcut |
 |---|---|
-| File Manager (Nautilus) | `Super + E` |
+| File Manager (Nemo) | `Super + E` |
 | Web Browser (Firefox) | `Super + F` |
 | Text Editor (Gedit) | `Super + T` |
 | Code/Text Editor (Geany) | `Super + G` |
@@ -221,7 +221,7 @@ bindsym --to-code $mod+r exec env XDG_CONFIG_HOME=/home/fahad/.config/newsflash-
 
 **قفل شاشة**: يتم تعطيل ميزة الخمول `swayidle` أثناء استخدامك للجهاز، لكنه ينشط فور قفل الشاشة عبر `gtklock` — لتوفير الطاقة.
 
- **تكامل سلس مع المصادقات  Polkit و Keyring**: بفضل `gnome-keyring`، لن تُطلب منك كلمة المرور مرارًا عند تشغيل تطبيقات تحتاج صلاحيات روت مثل Nautilus أو Chromium.
+ **تكامل سلس مع المصادقات  Polkit و Keyring**: بفضل `gnome-keyring`، لن تُطلب منك كلمة المرور مرارًا عند تشغيل تطبيقات تحتاج صلاحيات روت مثل Nemo أو Chromium.
 
 **اختصارات ثنائية اللغة**: جميع الاختصارات تعمل سواء كنت تستخدم لوحة مفاتيح إنجليزية (`us`) أو عربية (`ara`) — لأنها مبنية على الرمز (`--to-code`) وليس الحرف.
 
