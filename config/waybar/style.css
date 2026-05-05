@@ -130,3 +130,14 @@
 #network.disconnected {
     color: #cc241d;
 }
+
+/* Urgent workspace flash (3 pulses) */
+#workspaces button.urgent {
+  animation: urgent-flash 1.2s 3;
+}
+
+@keyframes urgent-flash {
+  50% {
+    background: #cc241d;
+  }
+}
