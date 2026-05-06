@@ -72,16 +72,6 @@ papers
 papers-plugin-pdfdocument
 gedit
 
-# --- Virtualization ---
-libvirt
-libvirt-daemon-qemu
-virt-manager
-virt-install
-virt-viewer
-qemu-tools
-qemu-ovmf-x86_64
-qemu-spice
-
 # --- Icons / UI ---
 papirus-icon-theme
 adwaita-icon-theme

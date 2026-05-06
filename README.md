@@ -14,7 +14,7 @@ No Display Manager required — log in via TTY and type `sway`.
 
 ## ✨ Features
 
-- **Fully Automated Install:** `install.sh` handles package installation (`zypper`), user groups (`libvirt`, `input`), service activation, and config symlinking.
+- **Fully Automated Install:** `install.sh` handles package installation (`zypper`), user groups (`input`), service activation, and config symlinking.
 - **Smart Hardware & VM Detection:** Display script auto-detects QEMU/KVM vs. bare metal and adjusts to the maximum native resolution.
 - **Aggressive Power-Saving Lock:** `swayidle` stays disabled during active use; automatically activates on lock via `gtklock`.
 - **Polkit & Keyring Integration:**  `gnome-keyring` bridge — run root-level GUI apps (Nemo, Chromium) without constant password prompts.
@@ -55,7 +55,7 @@ The script will prompt for your `sudo` password to install packages and enable s
 
 ### After install — reboot
 
-Some changes (e.g. `libvirt` group membership) only apply after re-login:
+Some changes (e.g. `input` group membership) only apply after re-login:
 
 
 reboot
@@ -219,7 +219,7 @@ bindsym --to-code $mod+r exec env XDG_CONFIG_HOME=$HOME/.config/newsflash-gtk4 X
 ---
 ## ✨ ما الذي يميّز هذا الإعداد؟
 
- **تثبيت ذاتي كامل**: السكربت `install.sh` تكفّل بكل شيء — من تثبيت الحزم (`zypper`)، إلى إضافة المستخدم للمجموعات المناسبة (`libvirt`, `input`)، وتفعيل الخدمات، وربط ملفات الإعداد في أماكنها الصحيحة.
+ **تثبيت ذاتي كامل**: السكربت `install.sh` تكفّل بكل شيء — من تثبيت الحزم (`zypper`)، إلى إضافة المستخدم للمجموعات المناسبة (`input`)، وتفعيل الخدمات، وربط ملفات الإعداد في أماكنها الصحيحة.
 
  **التعامل مع العتاد**: يكتشف تلقائيًا إن كنت تعمل داخل آلة افتراضية (QEMU/KVM) أم على جهاز حقيقي، ويضبط دقة الشاشة وفقًا لذلك دون تدخلك.
 
@@ -262,7 +262,7 @@ chmod +x install.sh
 
 ### بعد التثبيت — أعد التشغيل
 
-بعض التغييرات — مثل إضافة المستخدم لمجموعات النظام `libvirt` — لا تُفعّل إلا بعد إعادة تسجيل الدخول:
+بعض التغييرات — مثل إضافة المستخدم لمجموعة النظام `input` — لا تُفعّل إلا بعد إعادة تسجيل الدخول:
 
 ```bash
 reboot
