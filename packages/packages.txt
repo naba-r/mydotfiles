@@ -97,6 +97,9 @@ gnome-calculator
 newsflash
 libvirglrenderer1
 patterns-cockpit
+cockpit-packagekit
+cockpit-packages
+cockpit-snapshots
 
 # Fonts
 google-noto-sans-fonts
