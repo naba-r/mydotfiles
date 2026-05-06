@@ -133,11 +133,9 @@ fi
 ### 5. User Groups & Services
 ### =========================================================
 echo "👥 Adding user to groups"
-sudo usermod -aG libvirt "$USER" 2>/dev/null || true
 sudo usermod -aG input "$USER" 2>/dev/null || true
 
 echo "⚙ Enabling services"
-sudo systemctl enable --now libvirtd 2>/dev/null || true
 sudo systemctl enable --now NetworkManager 2>/dev/null || true
 sudo systemctl enable --now cockpit.socket 2>/dev/null || true
 
