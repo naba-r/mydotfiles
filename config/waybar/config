@@ -55,8 +55,9 @@
 
 
 "pulseaudio": {
-    "format": "󰕾 {volume}%",
-    "format-muted": "󰝟 {volume}%",
+   
+    "format": "{volume}%  󰕾",
+    "format-muted": "{volume}%  󰝟",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
@@ -84,7 +85,7 @@
 
 
   "tray": {
-    "icon-size": 13,
+    "icon-size": 16,
     "spacing": 8
   },
        
