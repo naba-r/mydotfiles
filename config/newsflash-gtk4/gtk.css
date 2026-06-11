@@ -29,9 +29,9 @@ headerbar button:hover image {
 }
 /* Fix Arabic text size in middle column */
 listview {
-    font-size: 11px;
+    font-size: 9px;
 }
 
 listview label {
-    font-size: 11px;
+    font-size: 9px;
 }
