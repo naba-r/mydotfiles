@@ -27,3 +27,11 @@ headerbar button:hover image {
 #article_view {
     font-family: "Dubai" !important;
 }
+/* Fix Arabic text size in middle column */
+listview {
+    font-size: 11px;
+}
+
+listview label {
+    font-size: 11px;
+}
