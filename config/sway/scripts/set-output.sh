@@ -34,4 +34,5 @@ for out in $outputs; do
     fi
   if [[ -n "$mode" && "$mode" != "null" ]]; then
     swaymsg output "$out" mode "$mode" scale "$scale"
+   fi
 done
