@@ -107,9 +107,15 @@ bindsym --to-code $mod+m exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym $mod+KP_1 workspace 1
 bindsym $mod+KP_2 workspace 2
 bindsym $mod+KP_3 workspace 3
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
 bindsym $mod+Shift+KP_End    move container to workspace 1; workspace 1
 bindsym $mod+Shift+KP_Down   move container to workspace 2; workspace 2
 bindsym $mod+Shift+KP_Next   move container to workspace 3; workspace 3
+bindsym $mod+Shift+1 move container to workspace 1; workspace 1
+bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+bindsym $mod+Shift+3 move container to workspace 3; workspace 3
 
 # Clipboard configuration
 
