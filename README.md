@@ -17,7 +17,7 @@ No Display Manager required — log in via TTY and type `sway`.
 - **Fully Automated Install:** `install.sh` handles package installation (`zypper`), user groups (`input`), service activation, and config symlinking.
 - **Smart Hardware & VM Detection:** Display script auto-detects QEMU/KVM vs. bare metal and adjusts to the maximum native resolution.
 - **Aggressive Power-Saving Lock:** `swayidle` stays disabled during active use; automatically activates on lock via `gtklock`.
-- **Polkit & Keyring Integration:**  `gnome-keyring` bridge — run root-level GUI apps (Nemo, Chromium) without constant password prompts.
+- **Polkit & Keyring Integration:**  `gnome-keyring` bridge — run root-level GUI apps (Nautilus, Chromium) without constant password prompts.
 - **Bilingual Keybindings:** Uses `--to-code` throughout so all shortcuts work in both English (`us`) and Arabic (`ara`) layouts.
 - **Modern Wayland Stack:** `waybar`, `fuzzel`, `mako`, `clipman`, PipeWire (`wpctl`).
 
@@ -91,7 +91,7 @@ Or simply type `sway` if your shell profile already wraps it.
 ### 🚀 Applications
 | Action | Shortcut |
 |---|---|
-| File Manager (Nemo) | `Super + E` |
+| File Manager (GNOME Files / Nautilus) | `Super + E` |
 | Web Browser (Firefox) | `Super + F` |
 | Text Editor (Gedit) | `Super + T` |
 | Code/Text Editor (Geany) | `Super + G` |
@@ -208,7 +208,7 @@ bindsym --to-code $mod+r exec env XDG_CONFIG_HOME=$HOME/.config/newsflash-gtk4 X
 
 # 🚀 بيئة Sway  لـ openSUSE Tumbleweed
 
-هذا إعدادٌ شخصيٌّ مُبسَّطٌ ومُؤتمَتٌ بالكامل، صُمِّم ليُناسب تثبيتًا حديثا من **openSUSE Tumbleweed** — خاصةً نسختي الخادم أو الاساسية (Server/Minimal). لا يحتاج إلى مدير عرض، ولا إلى واجهة رسومية معقدة. دخولك عبر الطرفية (TTY) ثم كتابة `sway` يكفي لتشغيل كل شيء كما يجب.
+هذا إعدادٌ شخصيٌّ مُبسَّطٌ ومُؤتمَتٌ بالكامل، صُمِّم ليُناسب تثبيتًا حديثا من **openSUSE Tumbleweed** — خاصةً نسختي [...]
 
 > **تثبيت فوري بسطر واحد:**
 
@@ -219,15 +219,15 @@ bindsym --to-code $mod+r exec env XDG_CONFIG_HOME=$HOME/.config/newsflash-gtk4 X
 ---
 ## ✨ ما الذي يميّز هذا الإعداد؟
 
- **تثبيت ذاتي كامل**: السكربت `install.sh` تكفّل بكل شيء — من تثبيت الحزم (`zypper`)، إلى إضافة المستخدم للمجموعات المناسبة (`input`)، وتفعيل الخدمات، وربط ملفات الإعداد في أماكنها الصحيحة.
+ **تثبيت ذاتي كامل**: السكربت `install.sh` تكفّل بكل شيء — من تثبيت الحزم (`zypper`)، إلى إضافة المستخدم للمجموعات المن�[...]
 
- **التعامل مع العتاد**: يكتشف تلقائيًا إن كنت تعمل داخل آلة افتراضية (QEMU/KVM) أم على جهاز حقيقي، ويضبط دقة الشاشة وفقًا لذلك دون تدخلك.
+ **التعامل مع العتاد**: يكتشف تلقائيًا إن كنت تعمل داخل آلة افتراضية (QEMU/KVM) أم على جهاز حقيقي، ويضبط دقة الشاش�[...]
 
-**قفل شاشة**: يتم تعطيل ميزة الخمول `swayidle` أثناء استخدامك للجهاز، لكنه ينشط فور قفل الشاشة عبر `gtklock` — لتوفير الطاقة.
+**قفل شاشة**: يتم تعطيل ميزة الخمول `swayidle` أثناء استخدامك للجهاز، لكنه ينشط فور قفل الشاشة عبر `gtklock` — لتوفير �[...]
 
- **تكامل سلس مع المصادقات  Polkit و Keyring**: بفضل `gnome-keyring`، لن تُطلب منك كلمة المرور مرارًا عند تشغيل تطبيقات تحتاج صلاحيات روت مثل Nemo أو Chromium.
+**تكامل سلس مع المصادقات  Polkit و Keyring**: بفضل `gnome-keyring`، لن تُطلب منك كلمة المرور مرارًا عند تشغيل تطبيقات تحتاج[...]
 
-**اختصارات ثنائية اللغة**: جميع الاختصارات تعمل سواء كنت تستخدم لوحة مفاتيح إنجليزية (`us`) أو عربية (`ara`) — لأنها مبنية على الرمز (`--to-code`) وليس الحرف.
+**اختصارات ثنائية اللغة**: جميع الاختصارات تعمل سواء كنت تستخدم لوحة مفاتيح إنجليزية (`us`) أو عربية (`ara`) — لأن�[...]
 
 **حزمة Wayland حديثة ومتناسقة**: تتضمن `waybar`، `fuzzel`، `mako`، `clipman`، و PipeWire.
 
@@ -300,7 +300,7 @@ sway
 - تبديل اللغة (عربي/إنجليزي): `Super + Space`
 
 ### تشغيل التطبيقات
-- مدير الملفات: `Super + E`
+- مدير الملفات (ملفات جنوم / Nautilus): `Super + E`
 - المتصفّح: `Super + F`
 - محرر النصوص (Gedit): `Super + T`
 - محرر الأكواد "برنامج جيني": `Super + G`
@@ -337,6 +337,7 @@ mydotfiles/
 ├── fonts/                  ← الخطوط
 ├── wallpaper/              ← الخلفيات
 └── Themes/                 ← ثيمات GTK وأيقونات
+```
 
 ---
 
@@ -362,13 +363,13 @@ rsync -a ~/.config/ ~/.config.backup-$(date +%Y-%m-%d-%H%M%S)/
 rsync -a --delete config/ ~/.config/
 ```
 
-هذا يعني أن أي ملفات إعداد سابقة داخل المسار `~/.config/` قد يتم حذفها واستبدالها بملفات هذا المستودع. يقوم السكربت بإنشاء نسخة احتياطية أولاً، لكن يُنصح بالحذر على الأنظمة المستخدمة مسبقًا.
+هذا يعني أن أي ملفات إعداد سابقة داخل المسار `~/.config/` قد يتم حذفها واستبدالها بملفات هذا المستودع. يقوم السكر[...]
 
 ---
 
 ## 📰 إعدادات NewsFlash
 
-تم ضبط التطبيق ليعمل بإعدادات معزولة لضمان عدم تداخلها مع بقية تطبيقات GTK4، مع اعتماد خط "Dubai" بشكل افتراضي لعرض النصوص العربية بشكل صحيح.
+تم ضبط التطبيق ليعمل بإعدادات معزولة لضمان عدم تداخلها مع بقية تطبيقات GTK4، مع اعتماد خط "Dubai" بشكل افتراضي ل�[...]
 
 ---
 

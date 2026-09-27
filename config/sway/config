@@ -11,7 +11,6 @@ exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec $HOME/.config/sway/start-keyring.sh
 
 # Resolution
-
 output * scale 1                                                                          
   
 # Display Output Script
@@ -38,20 +37,17 @@ exec mako
 
 
 # Keyboard configuration
-
 input * {
     xkb_layout us,ara
     xkb_numlock enable
 }
 
 # Assign workspaces to output 
-
 workspace 1 output WL-1
 workspace 2 output WL-1
 workspace 3 output WL-1
 
 # Wallpaper
-
 exec_always sh -c 'pkill swaybg; swaybg -i $HOME/Pictures/wallpapers/default.jpg -m fill'
 
 
@@ -76,7 +72,7 @@ bindsym --to-code $mod+q kill
 bindsym --to-code $mod+f exec firefox
 bindsym --to-code $mod+g exec env GTK_THEME=Adwaita:dark GTK_TEXT_DIR=rtl geany --new-instance
 bindsym --to-code $mod+r exec env XDG_CONFIG_HOME=$HOME/.config/newsflash-gtk4 XDG_DATA_DIRS=/usr/share:/usr/local/share ADW_DEBUG_COLOR_SCHEME=prefer-dark io.gitlab.news_flash.NewsFlash
-bindsym --to-code $mod+e exec env XDG_DATA_DIRS=/usr/share GDK_BACKEND=wayland nemo
+bindsym --to-code $mod+e exec nautilus --new-window
 bindsym --to-code $mod+t exec gedit
 
 # Screenshot - copy to clipboard only
@@ -146,5 +142,5 @@ bindsym $mod+space input * xkb_switch_layout next
 client.focused          #F0B13B #F0B13B #000000 #F0B13B   #F0B13B
 client.focused_inactive #333333 #333333 #888888 #333333   #333333
 client.unfocused        #333333 #333333 #888888 #333333   #333333
-client.urgent           #cc241d #cc241d #ffffff #cc241d   #cc241d
+client.urgent            #cc241d #cc241d #ffffff #cc241d   #cc241d
 
