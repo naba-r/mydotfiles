@@ -203,8 +203,13 @@ fi
 ### =========================================================
 ### 8. Default Applications & UI Settings
 ### =========================================================
-echo "📂 Setting Nemo as default file manager"
-xdg-mime default nemo.desktop inode/directory 2>/dev/null || true
+echo "📂 Setting Nautilus as default file manager"
+nautilus_desktop_id="$(rpm -ql nautilus 2>/dev/null | awk -F/ '/\/usr\/share\/applications\/.*nautilus.*\.desktop$/ {print $NF; exit}')"
+if [[ -n "$nautilus_desktop_id" ]]; then
+  xdg-mime default "$nautilus_desktop_id" inode/directory 2>/dev/null || true
+else
+  echo "⚠️ Nautilus desktop file not found; skipping default directory handler"
+fi
 xdg-mime default org.gnome.Loupe.desktop image/jpeg image/png image/webp image/gif image/tiff image/svg+xml
 
 echo "⚙️ Applying UI Themes via GSettings"

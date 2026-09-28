@@ -34,7 +34,7 @@ btop
 yazi
 
 # --- File Management ---
-nemo
+nautilus
 loupe
 localsearch
 sushi
