@@ -1,0 +1,14 @@
+# NewsBlur credentials — machine-local, never commit.
+# Template lives at config/news-flash/newsblur.json.example
+config/news-flash/newsblur.json
+
+# NewsFlash runtime state (window size, sidebar selection, article cache)
+config/news-flash/content_page_state.json
+
+# fish universal variables are machine-local state
+config/fish/fish_variables
+
+# Editor / OS cruft
+*~
+*.swp
+.DS_Store

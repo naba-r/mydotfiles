@@ -48,7 +48,7 @@ workspace 2 output WL-1
 workspace 3 output WL-1
 
 # Wallpaper
-exec_always sh -c 'pkill swaybg; swaybg -i $HOME/Pictures/wallpapers/default.jpg -m fill'
+exec_always sh -c 'pkill swaybg; swaybg -i $HOME/Pictures/wallpapers/default.png -m fill'
 
 
 
@@ -143,4 +143,7 @@ client.focused          #F0B13B #F0B13B #000000 #F0B13B   #F0B13B
 client.focused_inactive #333333 #333333 #888888 #333333   #333333
 client.unfocused        #333333 #333333 #888888 #333333   #333333
 client.urgent           #cc241d #cc241d #ffffff #cc241d   #cc241d
+
+# ---- Window Rules ----
+for_window [app_id="geany"] opacity 0.65
 

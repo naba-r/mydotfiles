@@ -5,7 +5,5 @@ end
 
 
 # Created by `pipx` on 2025-10-15 06:05:15
-set PATH $PATH /home/fahad/.local/bin
-set -x EDITOR edit
-set -x EDITOR edit
+set -x PATH $PATH $HOME/.local/bin
 set -x EDITOR micro
