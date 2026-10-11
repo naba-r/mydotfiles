@@ -20,9 +20,17 @@ if ! command -v git &>/dev/null || ! command -v rsync &>/dev/null; then
   sudo zypper in -y git rsync
 fi
 
-if [[ -d "$DOTFILES_DIR" ]]; then
+if [[ -d "$DOTFILES_DIR/.git" ]]; then
   echo "📂 Updating existing dotfiles..."
-  git -C "$DOTFILES_DIR" pull --ff-only
+  # The repo history may have been rewritten upstream (e.g. to purge a leaked
+  # credential), which leaves this clone diverged and unable to fast-forward.
+  # Fall back to matching origin/main; `git pull --ff-only` alone aborts there
+  # and, under `set -e`, kills the whole install.
+  if ! git -C "$DOTFILES_DIR" pull --ff-only; then
+    echo "🔀 Local history diverged from origin (history was rewritten upstream?)"
+    git -C "$DOTFILES_DIR" fetch origin
+    git -C "$DOTFILES_DIR" reset --hard origin/main
+  fi
 else
   echo "⬇️ Cloning dotfiles repository..."
   git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
