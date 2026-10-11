@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # 1. Kill existing instances safely
-pkill -f "wl-paste" 2>/dev/null
+# -x matches the process name exactly; -f would also match this script's own
+# command line (and any editor/wrapper mentioning wl-paste) and self-kill.
+pkill -x wl-paste 2>/dev/null || true
 
 # 2. Wait a moment to ensure they are dead
 sleep 0.5

@@ -165,11 +165,15 @@ The config sync step runs:
 # Backup first (recommended on existing systems)
 rsync -a ~/.config/ ~/.config.backup-$(date +%Y-%m-%d-%H%M%S)/
 
-# Then sync dotfiles (destructive)
-rsync -a --delete config/ ~/.config/
+# Then sync dotfiles (non-destructive)
+rsync -a config/ ~/.config/
 ```
 
-This sync **will remove** any `~/.config/` content not present in this repo. The installer creates a backup first, but use caution on existing systems.
+This sync **overwrites** files present in this repo and **leaves everything else alone**.
+It does not delete anything: `~/.config/` content not in this repo — including `dconf`,
+browser profiles and other apps' settings — is preserved. The installer creates a backup
+first; note that if you later remove a file from this repo it will linger in `~/.config/`
+until you delete it yourself.
 
 All scripts under `~/.config/sway/scripts/*.sh` are made executable automatically by the installer.
 
@@ -359,11 +363,14 @@ mydotfiles/
 # خذ نسخة احتياطية أولاً (مهم على الأنظمة المستخدمة مسبقاً)
 rsync -a ~/.config/ ~/.config.backup-$(date +%Y-%m-%d-%H%M%S)/
 
-# ثم مزامنة الإعدادات (قد تحذف إعدادات سابقة)
-rsync -a --delete config/ ~/.config/
+# ثم مزامنة الإعدادات (غير مدمّرة)
+rsync -a config/ ~/.config/
 ```
 
-هذا يعني أن أي ملفات إعداد سابقة داخل المسار `~/.config/` قد يتم حذفها واستبدالها بملفات هذا المستودع. يقوم السكر[...]
+المزامنة **تستبدل** الملفات الموجودة في هذا المستودع فقط، **ولا تحذف شيئاً**: أي محتوى
+آخر داخل `~/.config/` — بما فيه `dconf` وإعدادات المتصفحات وبرامج أخرى — يبقى كما هو.
+ينشئ السكربت نسخة احتياطية أولاً؛ لكن إذا حذفت ملفاً من المستودع لاحقاً فسيبقى موجوداً
+في `~/.config/` حتى تحذفه بنفسك.
 
 ---
 

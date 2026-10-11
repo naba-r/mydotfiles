@@ -55,7 +55,11 @@ else
 fi
 
 echo "🔒 Locking sway pattern"
-sudo zypper al patterns-sway-sway 2>/dev/null || true
+# The pattern is named 'sway'; 'patterns-sway-sway' is provided by nothing and
+# fails silently when hidden behind `|| true`.
+if ! sudo zypper al -t pattern sway; then
+    echo "⚠️ Could not lock the 'sway' pattern (name may have changed upstream)."
+fi
 
 
 
@@ -150,9 +154,10 @@ rsync -a "$HOME/.config/" "$CONFIG_BACKUP_DIR/"
 echo "📁 Restoring configuration files"
 mkdir -p "$HOME/.config"
 
-# Special handling for newsflash to avoid deleting its internal database/cache
-# while still updating the gtk.css and fontconfig
-rsync -a --delete "$CONFIG_SRC/" "$HOME/.config/"
+# Sync dotfiles over ~/.config without --delete: files you keep locally but
+# remove from this repo must survive, and unrelated app state (dconf, browser
+# profiles, NewsFlash data) must never be deleted by a package install.
+rsync -a "$CONFIG_SRC/" "$HOME/.config/"
 
 #  Making scripts executable
 echo "🔧 Making scripts executable..."

@@ -118,13 +118,14 @@
 
 
 "temperature": {
-  "thermal-zone": 7,
-  "critical-threshold": 80,
-  "format": "{temperatureC}°  ",
-  "format-critical": "{temperatureC}  ",
-  "interval": 30,
-  "tooltip": true,
-  "tooltip-format": "CPU Temperature {temperatureC}°C"
+    "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+    "input-filename": "temp1_input",
+    "critical-threshold": 80,
+    "format": "{temperatureC}°  ",
+    "format-critical": "{temperatureC}  ",
+    "interval": 30,
+    "tooltip": true,
+    "tooltip-format": "CPU Temperature {temperatureC}°C"
 },
 
 "network": {
