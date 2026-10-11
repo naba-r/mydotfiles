@@ -149,6 +149,9 @@ sudo systemctl enable --now cockpit.socket 2>/dev/null || true
 echo "📦 Backing up existing ~/.config"
 CONFIG_BACKUP_DIR="$HOME/.config.backup-$(date +%Y-%m-%d-%H%M%S)"
 mkdir -p "$CONFIG_BACKUP_DIR"
+# A fresh minimal install may have no ~/.config at all; rsync exits 23 on a
+# missing source and `set -e` would abort the install before anything is set up.
+mkdir -p "$HOME/.config"
 rsync -a "$HOME/.config/" "$CONFIG_BACKUP_DIR/"
 
 echo "📁 Restoring configuration files"
@@ -259,7 +262,7 @@ if [[ ${#failed_packages[@]} -gt 0 ]]; then
 fi
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "🔁 Reboot recommended (groups + shell changes need re-login)"
-read -rp "   Reboot now? [y/N] " _reboot
+read -rp "   Reboot now? [y/N] " _reboot || true
 if [[ "${_reboot,,}" == "y" ]]; then
   sudo reboot
 fi
